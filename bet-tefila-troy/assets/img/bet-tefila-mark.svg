@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Beth Tephilah abstract dome mark</title>
+  <desc id="desc">A copper dome, river line, and star inspired by the historic Troy synagogue.</desc>
+  <defs>
+    <linearGradient id="copper" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f4c28a"/>
+      <stop offset="0.55" stop-color="#b9794a"/>
+      <stop offset="1" stop-color="#68412e"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff7e8"/>
+      <stop offset="1" stop-color="#dbe7ee"/>
+    </linearGradient>
+  </defs>
+  <circle cx="80" cy="80" r="74" fill="#12202b"/>
+  <path d="M34 93c7-26 25-43 46-43s39 17 46 43" fill="url(#copper)"/>
+  <path d="M42 93h76v36H42z" fill="url(#glass)" opacity=".95"/>
+  <path d="M52 128V91M72 128V83M92 128V83M112 128V91" stroke="#12202b" stroke-width="5" stroke-linecap="round"/>
+  <path d="M80 23l6 13 14 2-10 10 3 14-13-7-13 7 3-14-10-10 14-2z" fill="#f7d58f"/>
+  <path d="M31 119c22 11 41-10 61 0s30 10 42 2" fill="none" stroke="#6da7b8" stroke-width="6" stroke-linecap="round"/>
+</svg>
