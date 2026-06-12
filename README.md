@@ -38,8 +38,7 @@ http://localhost:8000/
 ## Legacy Hamsa Nomads video automation
 
 The original video automation code remains in this repository for reference, but the main website deliverable is now the Bet Tefila Troy folder above.
-
-## WINDOWS SETUP
+>>>>>>## WINDOWS SETUP
 
 ### Step 1
 Double-click `install_windows.bat`.
