@@ -1,10 +1,44 @@
-# Hamsa Nomads Video Automation
+# Bet Tefila Troy Website
 
-A Windows-friendly Telegram video-editing bot for Hamsa Nomads. Send the bot a real MP4, give it a prompt, and it builds an `edit_recipe.json`, transcribes with optional local Whisper, renders with reliable FFmpeg by default or optional premium Remotion, then sends back `final_video.mp4`, `thumbnail.jpg`, and the recipe.
+**Primary project:** a serious, elegant, animated static website for Bet Tefila / Beth Tephilah in Troy, NY.
 
-No Adobe, Premiere, After Effects, CapCut, CUDA, Nvidia GPU, paid APIs, or cloud rendering are required.
+## Website link
 
-## WINDOWS SETUP
+- **Open the website from this repo:** [`bet-tefila-troy/index.html`](bet-tefila-troy/index.html)
+- **GitHub Pages path after Pages is enabled:** `https://<your-github-user>.github.io/HamsaNomads/bet-tefila-troy/`
+- **If GitHub Pages uses the repo root:** open [`index.html`](index.html); it redirects to the Bet Tefila Troy site.
+
+## Bet Tefila Troy site structure
+
+- `bet-tefila-troy/index.html` — historic synagogue homepage and visitor overview
+- `bet-tefila-troy/events.html` — events and program formats
+- `bet-tefila-troy/event-registration.html` — one shared event RSVP form
+- `bet-tefila-troy/contact.html` — contact, travel logistics, minyan, kosher meals, genealogy, and tours
+- `bet-tefila-troy/donate.html` — donation and dedication page
+- `bet-tefila-troy/shared/content.js` — shared synagogue identity, navigation, facts, and events
+- `bet-tefila-troy/assets/css/styles.css` — shared liquid-glass historic design system
+- `bet-tefila-troy/assets/js/site.js` — shared header, footer, animations, event hydration, and form helpers
+
+## Local preview
+
+Open `bet-tefila-troy/index.html` directly in a browser, or run:
+
+```bash
+python -m http.server 8000 --directory bet-tefila-troy
+```
+
+Then visit:
+
+```text
+http://localhost:8000/
+```
+
+---
+
+## Legacy Hamsa Nomads video automation
+
+The original video automation code remains in this repository for reference, but the main website deliverable is now the Bet Tefila Troy folder above.
+>>>>>>## WINDOWS SETUP
 
 ### Step 1
 Double-click `install_windows.bat`.
