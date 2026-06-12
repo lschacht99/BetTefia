@@ -12,8 +12,8 @@
 
 ## Beth Tephilah Synagogue site structure
 
-- `bet-tefila-troy/index.html` — historic synagogue homepage and visitor overview
-- `bet-tefila-troy/events.html` — events and program formats
+- `bet-tefila-troy/index.html` — homepage with the Synagogues360 tour as the immersive hero background
+- `bet-tefila-troy/events.html` — “We welcome your event” page for Bar/Bat Mitzvah, weddings, Brit Milah, Upsherin/Chalakah, Shabbat meals, and heritage gatherings
 - `bet-tefila-troy/event-registration.html` — one shared event RSVP form
 - `bet-tefila-troy/contact.html` — contact, travel logistics, minyan, kosher meals, genealogy, and tours
 - `bet-tefila-troy/donate.html` — donation and dedication page

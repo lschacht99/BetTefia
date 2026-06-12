@@ -60,6 +60,34 @@ window.BET_TEFILA_CONTENT = {
   ],
   events: [
     {
+      id: 'bar-bat-mitzvah',
+      title: 'Bar / Bat Mitzvah at Beth Tephilah',
+      tag: 'Coming of age',
+      date: 'By family planning',
+      description: 'A sacred milestone in a sanctuary with memory: Torah, family seating, kosher meal planning, and a serious historic atmosphere.'
+    },
+    {
+      id: 'wedding-sheva-brachot',
+      title: 'Wedding, Aufruf, or Sheva Brachot',
+      tag: 'Simcha',
+      date: 'By appointment',
+      description: 'Welcome a couple, family, and guests into a dignified Jewish setting for prayer, blessings, kosher food, and community warmth.'
+    },
+    {
+      id: 'brit-milah',
+      title: 'Brit Milah / Bris',
+      tag: 'New life',
+      date: 'By family timing',
+      description: 'Coordinate a circumcision gathering with care for timing, family needs, kosher refreshments, and a calm place for guests.'
+    },
+    {
+      id: 'upsherin-chalakah',
+      title: 'Upsherin / Chalakah First Haircut',
+      tag: 'First haircut',
+      date: 'By family planning',
+      description: 'Mark a child’s first haircut with family, blessings, treats, photos, and a Jewish space that feels meaningful rather than generic.'
+    },
+    {
       id: 'shabbat-meal',
       title: 'Shabbat Minyan & Kosher Meal',
       tag: 'Alive every week',
@@ -67,18 +95,18 @@ window.BET_TEFILA_CONTENT = {
       description: 'Warm tefillah, a kosher meal, conversation, and a place to land when you are in Troy for school, work, or travel.'
     },
     {
-      id: 'student-minyan',
-      title: 'Student Minyan & Torah Night',
-      tag: 'Near campus',
-      date: 'Weeknight pop-ups',
-      description: 'A focused minyan and learning night for RPI-area students and young professionals near downtown Troy.'
-    },
-    {
       id: 'heritage-tour',
       title: 'Historic Synagogue Visit',
       tag: 'History alive',
       date: 'By appointment',
       description: 'See the dome, balcony, barrel-vaulted sanctuary, and River Street story while learning how this landmark still serves Jewish life today.'
+    },
+    {
+      id: 'student-minyan',
+      title: 'Student Minyan & Torah Night',
+      tag: 'Near campus',
+      date: 'Weeknight pop-ups',
+      description: 'A focused minyan and learning night for RPI-area students and young professionals near downtown Troy.'
     },
     {
       id: 'holiday-table',

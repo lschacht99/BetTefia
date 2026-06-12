@@ -12,8 +12,8 @@ A self-contained static website for Beth Tephilah Synagogue in Troy, NY.
 
 ## Pages
 
-- `index.html` — Home / history / visitor overview
-- `events.html` — Event overview and upcoming program cards
+- `index.html` — Home with the Synagogues360 tour as the immersive hero background
+- `events.html` — “We welcome your event” page for Bar/Bat Mitzvah, wedding, Brit Milah, Upsherin/Chalakah first haircut, Shabbat meals, and heritage gatherings
 - `event-registration.html` — One shared event RSVP form for all events
 - `contact.html` — Contact and visitor logistics form
 - `donate.html` — Donation page and dedication form
@@ -27,7 +27,7 @@ A self-contained static website for Beth Tephilah Synagogue in Troy, NY.
 
 ## Design direction
 
-The site borrows from modern museum and heritage-site web patterns: large editorial typography, cinematic hero sections, glass panels, clear calls to action, subtle scroll animation, and simple navigation. It stays serious and respectful while still feeling alive for students, travelers, families, and young adults.
+The site borrows from modern museum and heritage-site web patterns: a cinematic 360° hero background, large editorial typography, glass panels, clear calls to action, subtle scroll animation, and simple navigation. The main color is the blue-gray sanctuary wall tone from the reference image. It stays serious and respectful while still feeling alive for students, travelers, families, and young adults.
 
 ## Static form behavior
 
