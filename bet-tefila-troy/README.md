@@ -1,10 +1,12 @@
-# Bet Tefila Troy website
+# Beth Tephilah Synagogue website
 
-A self-contained static website for Beth Tephilah / Bet Tefila in Troy, NY.
+A self-contained static website for Beth Tephilah Synagogue in Troy, NY.
 
 ## Link to view
 
 - Open locally: [`index.html`](index.html)
+- Interactive 360° source tour: https://synagogues-360.anumuseum.org.il/gallery/beth-tephilah/
+- Facebook page for live updates: https://www.facebook.com/bethtephilah.synagogue/
 - From the repo root: [`../index.html`](../index.html) redirects here.
 - GitHub Pages path after Pages is enabled: `https://<your-github-user>.github.io/HamsaNomads/bet-tefila-troy/`
 

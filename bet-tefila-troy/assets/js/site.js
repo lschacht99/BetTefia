@@ -1,5 +1,6 @@
 const content = window.BET_TEFILA_CONTENT || {};
 const CONTACT_EMAIL = content.email || 'office@bethtephilahtroy.org';
+const CONTACT_PHONE = content.phone || '(518) 272-3182';
 
 function currentPage() {
   const path = window.location.pathname.split('/').pop() || 'index.html';
@@ -17,9 +18,9 @@ function renderHeader() {
     <div class="scroll-progress" data-scroll-progress></div>
     <header class="site-header">
       <div class="container navbar">
-        <a class="brand-link" href="index.html" aria-label="${content.displayName || 'Bet Tefila Troy'} home">
+        <a class="brand-link" href="index.html" aria-label="${content.displayName || 'Beth Tephilah Synagogue'} home">
           <img src="assets/img/bet-tefila-mark.svg" alt="" width="52" height="52" />
-          <span><span class="brand-kicker">Historic Troy</span><span class="brand-name">${content.displayName || 'Bet Tefila Troy'}</span></span>
+          <span><span class="brand-kicker">Historic Troy</span><span class="brand-name">${content.displayName || 'Beth Tephilah Synagogue'}</span></span>
         </a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
         <nav id="site-nav" class="nav-links" aria-label="Main navigation">${nav}</nav>
@@ -40,12 +41,13 @@ function renderFooter() {
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <h3>${content.displayName || 'Bet Tefila Troy'}</h3>
-          <p>A historic house of prayer on River Street, welcoming students, travelers, neighbors, and anyone looking for Jewish life in Troy.</p>
+          <h3>${content.displayName || 'Beth Tephilah Synagogue'}</h3>
+          <p>A living historic house of prayer on River Street, welcoming students, travelers, neighbors, and anyone looking for Jewish life in Troy.</p>
         </div>
         <div>
           <strong>Visit</strong>
           <p>${content.address || '82 River Street, Troy, NY 12180'}</p>
+          <p>${CONTACT_PHONE}</p>
           <a href="contact.html">Plan a visit</a>
           <a href="event-registration.html">Join an event</a>
         </div>
@@ -54,6 +56,7 @@ function renderFooter() {
           <a href="donate.html">Donate</a>
           <a href="events.html">Upcoming events</a>
           <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>
+          <a href="${content.facebook || '#'}">Facebook updates</a>
         </div>
       </div>
     </footer>`;
@@ -94,7 +97,7 @@ function setupDonationChips() {
 
 function mailtoFromForm(form) {
   const data = new FormData(form);
-  const subject = data.get('subject') || form.dataset.subject || 'Bet Tefila Troy inquiry';
+  const subject = data.get('subject') || form.dataset.subject || 'Beth Tephilah Synagogue inquiry';
   const lines = [];
   for (const [key, value] of data.entries()) {
     if (key !== 'subject') lines.push(`${key}: ${value}`);

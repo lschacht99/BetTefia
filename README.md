@@ -1,14 +1,16 @@
-# Bet Tefila Troy Website
+# Beth Tephilah Synagogue Website
 
-**Primary project:** a serious, elegant, animated static website for Bet Tefila / Beth Tephilah in Troy, NY.
+**Primary project:** a serious, elegant, animated static website for Beth Tephilah Synagogue in Troy, NY.
 
 ## Website link
 
 - **Open the website from this repo:** [`bet-tefila-troy/index.html`](bet-tefila-troy/index.html)
+- **Interactive 360° source tour:** https://synagogues-360.anumuseum.org.il/gallery/beth-tephilah/
+- **Facebook page for live updates:** https://www.facebook.com/bethtephilah.synagogue/
 - **GitHub Pages path after Pages is enabled:** `https://<your-github-user>.github.io/HamsaNomads/bet-tefila-troy/`
-- **If GitHub Pages uses the repo root:** open [`index.html`](index.html); it redirects to the Bet Tefila Troy site.
+- **If GitHub Pages uses the repo root:** open [`index.html`](index.html); it redirects to the Beth Tephilah Synagogue site.
 
-## Bet Tefila Troy site structure
+## Beth Tephilah Synagogue site structure
 
 - `bet-tefila-troy/index.html` — historic synagogue homepage and visitor overview
 - `bet-tefila-troy/events.html` — events and program formats
@@ -17,7 +19,7 @@
 - `bet-tefila-troy/donate.html` — donation and dedication page
 - `bet-tefila-troy/shared/content.js` — shared synagogue identity, navigation, facts, and events
 - `bet-tefila-troy/assets/css/styles.css` — shared liquid-glass historic design system
-- `bet-tefila-troy/assets/js/site.js` — shared header, footer, animations, event hydration, and form helpers
+- `bet-tefila-troy/assets/js/site.js` — shared header, footer, animations, scroll progress, event hydration, and form helpers
 
 ## Local preview
 
@@ -37,8 +39,9 @@ http://localhost:8000/
 
 ## Legacy Hamsa Nomads video automation
 
-The original video automation code remains in this repository for reference, but the main website deliverable is now the Bet Tefila Troy folder above.
->>>>>>## WINDOWS SETUP
+The original video automation code remains in this repository for reference, but the main website deliverable is now the Beth Tephilah Synagogue folder above.
+
+## WINDOWS SETUP
 
 ### Step 1
 Double-click `install_windows.bat`.
