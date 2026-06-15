@@ -1,6 +1,6 @@
-# Beth Tephilah Synagogue website
+# Beth Tephila Synagogue website
 
-A self-contained static website for Beth Tephilah Synagogue in Troy, NY.
+A self-contained static website for Beth Tephila Synagogue in Troy, NY.
 
 ## Link to view
 
