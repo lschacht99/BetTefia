@@ -11,7 +11,7 @@ window.BET_TEFILA_CONTENT = {
   nav: [
     { href: 'index.html', label: 'Home' },
     { href: 'events.html', label: 'Events' },
-    { href: 'event-registration.html', label: 'Join an Event' },
+    { href: 'event-registration.html', label: 'Plan Event' },
     { href: 'contact.html', label: 'Contact' },
     { href: 'donate.html', label: 'Donate' }
   ],
@@ -25,7 +25,7 @@ window.BET_TEFILA_CONTENT = {
     'Neo-Classical exterior with Doric columns and a copper dome',
     'Barrel-vaulted sanctuary with a women’s balcony supported by Doric columns',
     'Orthodox / Chabad Jewish life in downtown Troy',
-    'Call ahead for Shabbat minyan, kosher meals, visits, and traveler logistics'
+    'Call ahead for Shabbat minyan, kosher meals, visits, event planning, and traveler logistics'
   ],
   historyHighlights: [
     {
@@ -60,6 +60,20 @@ window.BET_TEFILA_CONTENT = {
   ],
   events: [
     {
+      id: 'shabbat-calendar',
+      title: 'Shabbat Minyan & Kosher Meal',
+      tag: 'Weekly / confirm',
+      date: 'Shabbat by RSVP / call ahead',
+      description: 'Warm tefillah, a kosher meal, conversation, and a place to land when you are in Troy for school, work, family, or travel.'
+    },
+    {
+      id: 'holiday-table',
+      title: 'Holiday Table & Community Dinner',
+      tag: 'Holiday calendar',
+      date: 'Seasonal Jewish holidays',
+      description: 'Sedars, festival meals, candle-lighting gatherings, music, stories, and room for guests, families, students, and travelers.'
+    },
+    {
       id: 'bar-bat-mitzvah',
       title: 'Bar / Bat Mitzvah at Beth Tephilah',
       tag: 'Coming of age',
@@ -88,13 +102,6 @@ window.BET_TEFILA_CONTENT = {
       description: 'Mark a child’s first haircut with family, blessings, treats, photos, and a Jewish space that feels meaningful rather than generic.'
     },
     {
-      id: 'shabbat-meal',
-      title: 'Shabbat Minyan & Kosher Meal',
-      tag: 'Alive every week',
-      date: 'Shabbat by RSVP / call ahead',
-      description: 'Warm tefillah, a kosher meal, conversation, and a place to land when you are in Troy for school, work, or travel.'
-    },
-    {
       id: 'heritage-tour',
       title: 'Historic Synagogue Visit',
       tag: 'History alive',
@@ -109,11 +116,11 @@ window.BET_TEFILA_CONTENT = {
       description: 'A focused minyan and learning night for RPI-area students and young professionals near downtown Troy.'
     },
     {
-      id: 'holiday-table',
-      title: 'Holiday Table & Community Dinner',
-      tag: 'Kosher food',
-      date: 'Holiday calendar',
-      description: 'Seasonal Jewish holiday programs, seders, festival meals, music, stories, and room for guests, families, students, and travelers.'
+      id: 'nearby-stay',
+      title: 'Nearby Stay / Shabbat Guest Planning',
+      tag: 'Visit logistics',
+      date: 'Before you book travel',
+      description: 'Coordinate hotels, walking routes, parking, campus or work-conference needs, kosher food, and what to prepare before Shabbat or a simcha.'
     }
   ]
 };

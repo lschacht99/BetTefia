@@ -329,3 +329,22 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shado
   .tour-scrim { background: linear-gradient(0deg, rgba(17,33,43,.86), rgba(17,33,43,.48)); }
   .heritage-ribbon div { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.16); }
 }
+
+/* Warm heritage refresh: oak/parchment/copper over the sanctuary blue-gray. */
+:root {
+  --oak: #b98958;
+  --oak-light: #ead7bd;
+  --parchment: #f7efe2;
+}
+body {
+  background:
+    radial-gradient(circle at 14% 9%, rgba(234, 215, 189, .78), transparent 27rem),
+    radial-gradient(circle at 82% 12%, rgba(191, 123, 76, .18), transparent 23rem),
+    linear-gradient(135deg, #9fb0b8 0%, #d8e2df 40%, #f7efe2 100%);
+}
+.site-header { background: rgba(247, 239, 226, .9); }
+.card, .glass-card { border-color: rgba(255,255,255,.82); }
+.section-360 { background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(234,215,189,.26), rgba(255,255,255,.08)); }
+.event-hero { padding-bottom: 28px; }
+.donation-options { grid-template-columns: repeat(5, 1fr); }
+@media (max-width: 860px) { .donation-options { grid-template-columns: 1fr; } }
