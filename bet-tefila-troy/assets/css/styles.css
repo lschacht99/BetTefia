@@ -16,6 +16,20 @@
   --radius-xl: 18px;
   --radius-lg: 12px;
   --max: 1180px;
+
+  /* Warm heritage */
+  --oak: #b98958;
+  --oak-light: #ead7bd;
+  --parchment: #f7efe2;
+
+  /* Legacy aliases used by older HTML */
+  --ink: var(--navy);
+  --ink-soft: var(--navy-soft);
+  --paper: var(--sky-light);
+  --paper-2: var(--sky-wash);
+  --teal: var(--sky-mid);
+  --wall-blue: var(--sky);
+  --wall-blue-light: var(--sky-light);
 }
 
 * { box-sizing: border-box; }
@@ -49,8 +63,8 @@ img, svg { max-width: 100%; }
   position: absolute;
   top: -48px;
   left: 16px;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--navy);
+  color: var(--sky-light);
   padding: 12px 16px;
   border-radius: 12px;
   z-index: 10;
@@ -66,8 +80,8 @@ img, svg { max-width: 100%; }
   z-index: 30;
   transform-origin: left center;
   transform: scaleX(0);
-  background: linear-gradient(90deg, var(--copper), var(--gold), var(--teal));
-  box-shadow: 0 0 22px rgba(191,123,76,.42);
+  background: linear-gradient(90deg, var(--copper), var(--gold), var(--sky-accent));
+  box-shadow: 0 0 22px rgba(42,109,153,.42);
 }
 
 .site-header {
@@ -93,7 +107,7 @@ img, svg { max-width: 100%; }
   font-weight: 850;
   letter-spacing: -.03em;
 }
-.brand-link img { width: 52px; height: 52px; filter: drop-shadow(0 10px 18px rgba(17,33,43,.18)); }
+.brand-link img { width: 52px; height: 52px; filter: drop-shadow(0 10px 18px rgba(7,30,45,.18)); }
 .brand-kicker { display: block; font-size: 12px; letter-spacing: .18em; color: var(--copper-dark); text-transform: uppercase; }
 .brand-name { display: block; font-size: 22px; }
 .nav-links { display: flex; align-items: center; gap: 8px; }
@@ -102,7 +116,7 @@ img, svg { max-width: 100%; }
   padding: 10px 14px;
   border-radius: 10px;
   font-weight: 720;
-  color: var(--ink-soft);
+  color: var(--navy-soft);
 }
 .nav-links a:hover, .nav-links a[aria-current="page"] { background: #f4f1ec; color: var(--ink); box-shadow: none; }
 .menu-toggle { display: none; border: 0; background: var(--ink); color: white; border-radius: 10px; padding: 10px 14px; font-weight: 800; }
@@ -111,11 +125,11 @@ img, svg { max-width: 100%; }
 .hero-immersive { padding-top: 42px; }
 .hero-360-grid { display: grid; grid-template-columns: minmax(320px, .82fr) minmax(0, 1.18fr); gap: 28px; align-items: stretch; }
 .hero-copy { align-self: center; }
-.tour-shell { min-height: 620px; border-radius: var(--radius-xl); overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,.78); box-shadow: var(--shadow); background: rgba(17,33,43,.12); }
+.tour-shell { min-height: 620px; border-radius: var(--radius-xl); overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,.78); box-shadow: var(--shadow); background: rgba(7,30,45,.12); }
 .tour-shell iframe { width: 100%; height: 100%; min-height: 620px; border: 0; display: block; background: var(--sky); }
 .tour-caption { position: absolute; left: 18px; right: 18px; bottom: 18px; display: grid; gap: 5px; padding: 14px 16px; border-radius: 10px; background: rgba(17,33,43,.76); color: white; backdrop-filter: blur(14px); }
 .tour-caption span { color: rgba(255,255,255,.78); font-size: 13px; }
-.tour-caption a { color: var(--gold); font-weight: 900; }
+.tour-caption a { color: var(--gold-light); font-weight: 900; }
 .hero-proof { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
 .hero-proof span { padding: 9px 12px; border-radius: 10px; background: rgba(255,255,255,.72); border: 1px solid rgba(17,33,43,.09); font-weight: 850; color: var(--ink-soft); }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(330px, .9fr); gap: 36px; align-items: center; }
@@ -124,7 +138,7 @@ h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; letter-spacing: -.0
 h1 { font-size: clamp(48px, 8vw, 104px); }
 h2 { font-size: clamp(36px, 5.2vw, 68px); }
 h3 { font-size: clamp(25px, 3vw, 34px); }
-p { line-height: 1.72; color: var(--ink-soft); font-size: 17px; }
+p { line-height: 1.72; color: var(--navy-soft); font-size: 17px; }
 .lede { font-size: clamp(18px, 2vw, 22px); max-width: 760px; }
 
 .glass-card {
@@ -137,7 +151,7 @@ p { line-height: 1.72; color: var(--ink-soft); font-size: 17px; }
 .hero-card { padding: 26px; position: relative; overflow: hidden; }
 .hero-card::after { content: ""; position: absolute; inset: auto -10% -2px; height: 115px; background: url('../img/river-pattern.svg') center/cover no-repeat; opacity: .92; }
 .dome-window { aspect-ratio: 4 / 5; border-radius: 28px; background:
-  linear-gradient(rgba(17,33,43,.2), rgba(17,33,43,.4)),
+  linear-gradient(rgba(7,30,45,.2), rgba(7,30,45,.4)),
   radial-gradient(circle at 50% 18%, #f0bd82 0 14%, transparent 15%),
   linear-gradient(90deg, transparent 0 12%, rgba(255,255,255,.18) 13% 14%, transparent 15% 26%, rgba(255,255,255,.16) 27% 28%, transparent 29%),
   linear-gradient(160deg, #143140, #2f7481 52%, #e8cfa3);
@@ -159,12 +173,12 @@ p { line-height: 1.72; color: var(--ink-soft); font-size: 17px; }
   border-radius: 10px;
   text-decoration: none;
   font-weight: 850;
-  border: 1px solid rgba(17,33,43,.12);
+  border: 1px solid rgba(7,30,45,.12);
   transition: transform .2s ease, box-shadow .2s ease;
 }
-.button:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(17,33,43,.14); }
-.button.primary { background: var(--ink); color: white; }
-.button.secondary { background: rgba(255,255,255,.68); color: var(--ink); }
+.button:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(7,30,45,.14); }
+.button.primary { background: var(--navy); color: white; }
+.button.secondary { background: rgba(255,255,255,.68); color: var(--navy); }
 .button.copper { background: linear-gradient(135deg, var(--copper), var(--copper-dark)); color: white; }
 
 .section { padding: 58px 0; }
@@ -189,7 +203,7 @@ p { line-height: 1.72; color: var(--ink-soft); font-size: 17px; }
 .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .field { display: grid; gap: 8px; }
 .field.full { grid-column: 1 / -1; }
-label { font-weight: 850; color: var(--ink); }
+label { font-weight: 850; color: var(--navy); }
 input, select, textarea {
   width: 100%;
   min-height: 48px;
@@ -198,21 +212,21 @@ input, select, textarea {
   padding: 12px 14px;
   font: inherit;
   background: rgba(255,255,255,.76);
-  color: var(--ink);
+  color: var(--navy);
   outline: none;
 }
 textarea { min-height: 130px; resize: vertical; }
-input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 4px rgba(53,111,125,.12); }
-.form-note { font-size: 14px; color: var(--ink-soft); }
-.form-status { margin-top: 16px; font-weight: 800; color: var(--teal); }
+input:focus, select:focus, textarea:focus { border-color: var(--sky-accent); box-shadow: 0 0 0 4px rgba(42,109,153,.12); }
+.form-note { font-size: 14px; color: var(--navy-soft); }
+.form-status { margin-top: 16px; font-weight: 800; color: var(--sky-accent); }
 
 .donation-options { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 22px 0; }
 .donation-chip { border: 1px solid rgba(17,33,43,.13); border-radius: 10px; padding: 18px; background: rgba(255,255,255,.65); font-weight: 900; text-align: center; cursor: pointer; }
 .donation-chip:hover, .donation-chip.active { background: var(--ink); color: white; }
 
-.site-footer { margin-top: 72px; padding: 40px 0; background: rgba(17,33,43,.92); color: var(--paper); }
+.site-footer { margin-top: 72px; padding: 40px 0; background: rgba(7,30,45,.92); color: var(--sky-light); }
 .footer-grid { display: grid; grid-template-columns: 1.2fr .8fr .8fr; gap: 28px; }
-.site-footer p, .site-footer a { color: rgba(248,241,228,.78); }
+.site-footer p, .site-footer a { color: rgba(212,229,240,.78); }
 .site-footer a { text-decoration: none; display: block; margin: 8px 0; }
 
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
@@ -230,7 +244,6 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shado
   .form-grid, .donation-options { grid-template-columns: 1fr; }
 }
 
-
 /* Immersive 360 hero: the tour is the visual background, not a side widget. */
 .hero-tour-background {
   min-height: calc(100vh - 82px);
@@ -245,7 +258,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shado
   position: absolute;
   inset: 0;
   z-index: -2;
-  background: var(--wall-blue);
+  background: var(--sky);
 }
 .tour-background iframe {
   width: 100%;
@@ -261,8 +274,8 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shado
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(90deg, rgba(17,33,43,.86) 0%, rgba(17,33,43,.62) 42%, rgba(17,33,43,.16) 100%),
-    linear-gradient(0deg, rgba(17,33,43,.7) 0%, transparent 48%, rgba(159,176,184,.32) 100%);
+    linear-gradient(90deg, rgba(7,30,45,.86) 0%, rgba(7,30,45,.62) 42%, rgba(7,30,45,.16) 100%),
+    linear-gradient(0deg, rgba(7,30,45,.7) 0%, transparent 48%, rgba(95,154,184,.32) 100%);
   pointer-events: none;
 }
 .hero-overlay-grid {
@@ -274,14 +287,14 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shado
 .hero-panel, .hero-history-card {
   color: white;
   border: 1px solid rgba(255,255,255,.24);
-  background: linear-gradient(145deg, rgba(17,33,43,.74), rgba(17,33,43,.42));
+  background: linear-gradient(145deg, rgba(7,30,45,.76), rgba(7,30,45,.44));
   border-radius: var(--radius-xl);
   box-shadow: 0 32px 90px rgba(0,0,0,.32);
   backdrop-filter: blur(18px);
 }
 .hero-panel { padding: clamp(28px, 5vw, 54px); }
 .hero-history-card { padding: clamp(24px, 3vw, 34px); }
-.hero-panel .eyebrow, .hero-history-card .tag { color: #f3d69a; }
+.hero-panel .eyebrow, .hero-history-card .tag { color: var(--gold-light); }
 .hero-panel p, .hero-history-card p { color: rgba(255,255,255,.84); }
 .hero-panel h1 { text-shadow: 0 18px 50px rgba(0,0,0,.36); }
 .hero-panel .hero-proof span {
@@ -320,7 +333,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shado
   .hero-tour-background { min-height: auto; padding-top: 70px; }
   .hero-overlay-grid, .heritage-ribbon { grid-template-columns: 1fr; }
   .tour-background iframe { transform: scale(1.18); }
-  .tour-scrim { background: linear-gradient(0deg, rgba(17,33,43,.86), rgba(17,33,43,.48)); }
+  .tour-scrim { background: linear-gradient(0deg, rgba(7,30,45,.86), rgba(7,30,45,.48)); }
   .heritage-ribbon div { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.16); }
 }
 

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Schedule & Minyan — Beth Tephilah Synagogue</title>
+  <meta name="description" content="Beth Tephilah Synagogue prayer times, minyan schedule, and upcoming events. Shacharit, Mincha, Maariv, Shabbat services, holidays, and community gatherings in Troy, NY." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="site-shell">
+    <div data-shared-header></div>
+    <main id="main">
+
+      <!-- HERO -->
+      <section class="hero" style="padding-top:60px;padding-bottom:36px">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="reveal">
+              <div class="eyebrow">Prayer times & community calendar</div>
+              <h1>Join us<br>for prayer.</h1>
+              <p class="lede">Beth Tephilah holds daily minyanim, Shabbat services, and community gatherings. Find today's schedule below — and let the shul know you're coming.</p>
+              <div class="actions">
+                <a class="button primary" href="tel:+15182723182">(518) 272-3182 — Confirm times</a>
+                <a class="button secondary" href="book.html">Book a simcha</a>
+              </div>
+              <p class="form-note" style="margin-top:14px">Times may vary by season and Jewish calendar. Always call or email to confirm before traveling.</p>
+            </div>
+            <aside class="glass-card form-card reveal">
+              <span class="tag">Minyan</span>
+              <h2 style="font-size:clamp(28px,3.5vw,44px)">A minyan needs 10. You can be one of them.</h2>
+              <p>If you're in Troy today — for work, school, travel, or family — clicking "I'll be there" below tells the shul to expect you. Help build the minyan.</p>
+              <a class="button primary" href="tel:+15182723182" style="margin-top:16px;display:inline-flex">Call to confirm →</a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- TODAY'S MINYAN -->
+      <section class="section" style="padding-top:0">
+        <div class="container">
+          <div class="minyan-today-banner reveal" id="today-banner">
+            <div class="minyan-today-date" id="today-date-display"></div>
+            <h2 class="minyan-today-title" id="today-day-name">Today's Services</h2>
+            <div class="minyan-services" id="today-services">
+              <!-- Populated by JS -->
+            </div>
+            <p style="color:rgba(255,255,255,.58);font-size:13px;margin-top:18px">Times are approximate. <a href="tel:+15182723182" style="color:rgba(255,255,255,.75)">Call to confirm.</a></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- WEEKLY SCHEDULE -->
+      <section class="section" style="padding-top:0">
+        <div class="container">
+          <div class="section-header reveal">
+            <div>
+              <div class="eyebrow">Weekly schedule</div>
+              <h2>Every day, every week.</h2>
+            </div>
+            <p>Regular prayer schedule for Beth Tephilah Synagogue. Shabbat is highlighted in gold.</p>
+          </div>
+          <div class="weekly-schedule-grid reveal" id="weekly-grid">
+            <!-- Populated by JS -->
+          </div>
+          <div class="glass-card form-card reveal" style="margin-top:24px;text-align:center;padding:28px">
+            <p style="margin:0"><strong>Mincha/Maariv times shift seasonally.</strong> Call <a href="tel:+15182723182">(518) 272-3182</a> or email <a href="mailto:office@bethtephilahtroy.org">office@bethtephilahtroy.org</a> to confirm current times.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- UPCOMING EVENTS -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div>
+              <div class="eyebrow">What's coming</div>
+              <h2>Holidays, meals, and milestones.</h2>
+            </div>
+            <p>Beth Tephilah marks every Jewish holiday and welcomes the community for simchos and special programs.</p>
+          </div>
+          <div class="grid three reveal" id="events-grid">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- LODGING & VISIT -->
+      <section class="section">
+        <div class="container grid three reveal">
+          <article class="card">
+            <span class="tag">Location</span>
+            <h3>82 River Street</h3>
+            <p>Downtown Troy, near Russell Sage College, the Hudson River, and RPI. Walking distance from several hotels.</p>
+            <a class="button secondary" href="https://maps.google.com/?q=82+River+Street+Troy+NY+12180" target="_blank" rel="noopener" style="margin-top:14px;display:inline-flex">Get directions →</a>
+          </article>
+          <article class="card">
+            <span class="tag">Stay nearby</span>
+            <h3>Hotels for Shabbat</h3>
+            <p>Planning to stay for Shabbat? Contact us to coordinate nearby hotels, walking routes, and what to prepare before candle lighting.</p>
+            <a class="button secondary" href="contact.html" style="margin-top:14px;display:inline-flex">Contact us →</a>
+          </article>
+          <article class="card">
+            <span class="tag">Students</span>
+            <h3>RPI & Sage students</h3>
+            <p>Near campus. Student Shabbat, holiday meals, minyan, and Torah learning. Come as you are.</p>
+            <a class="button secondary" href="contact.html" style="margin-top:14px;display:inline-flex">Reach out →</a>
+          </article>
+        </div>
+      </section>
+
+    </main>
+    <div data-shared-footer></div>
+  </div>
+  <script src="config.js"></script>
+  <script src="shared/content.js"></script>
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/minyan.js"></script>
+</body>
+</html>
