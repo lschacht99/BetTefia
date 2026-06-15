@@ -2,6 +2,131 @@ const content = window.BET_TEFILA_CONTENT || {};
 const CONTACT_EMAIL = content.email || 'office@bethtephilahtroy.org';
 const CONTACT_PHONE = content.phone || '(518) 272-3182';
 
+const BETH_TEPHILAH_PANO_SCRIPT = 'https://synagogues-360.anumuseum.org.il/wp-content/themes/synagogues360/assets/js/tour.js';
+const BETH_TEPHILAH_PANO_XML = 'https://synagogues-360.anumuseum.org.il/wp-content/uploads/krpano/united_states_276.xml';
+const BETH_TEPHILAH_PHOTOS = Array.from({ length: 9 }, (_, index) => {
+  const number = String(index + 1).padStart(2, '0');
+  return {
+    full: `https://synagogues-360.anumuseum.org.il/wp-content/uploads/2017/12/united_states_276_${number}.jpg`,
+    thumb: `https://synagogues-360.anumuseum.org.il/wp-content/uploads/2017/12/united_states_276_${number}-170x170.jpg`,
+    alt: `Beth Tephilah synagogue photo ${index + 1}`
+  };
+});
+let bethTephilahPanoScriptPromise;
+let bethTephilahPanoInitialized = false;
+
+function loadBethTephilahPanoScript() {
+  if (window.embedpano) return Promise.resolve();
+  if (bethTephilahPanoScriptPromise) return bethTephilahPanoScriptPromise;
+  const existing = document.querySelector(`script[src="${BETH_TEPHILAH_PANO_SCRIPT}"]`);
+  bethTephilahPanoScriptPromise = new Promise((resolve, reject) => {
+    if (existing) {
+      existing.addEventListener('load', resolve, { once: true });
+      existing.addEventListener('error', reject, { once: true });
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = BETH_TEPHILAH_PANO_SCRIPT;
+    script.async = true;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+  return bethTephilahPanoScriptPromise;
+}
+
+function showBethTephilahPanoFallback(hero) {
+  const fallback = hero.querySelector('[data-pano-fallback]');
+  if (fallback) fallback.hidden = false;
+}
+
+function initBethTephilahPano() {
+  const target = document.getElementById('beth-tephilah-pano');
+  const hero = document.querySelector('.beth-tephilah-360-hero');
+  if (!target || !hero || bethTephilahPanoInitialized) return;
+  bethTephilahPanoInitialized = true;
+  loadBethTephilahPanoScript()
+    .then(() => {
+      if (!window.embedpano) throw new Error('KRPano embedpano is unavailable');
+      window.embedpano({
+        xml: BETH_TEPHILAH_PANO_XML,
+        target: 'beth-tephilah-pano',
+        html5: 'only',
+        wmode: 'transparent',
+        passQueryParameters: true,
+        onready: () => hero.classList.add('is-pano-ready')
+      });
+      window.setTimeout(() => hero.classList.add('is-pano-ready'), 2400);
+    })
+    .catch(() => showBethTephilahPanoFallback(hero));
+}
+
+function setupBethTephilahPhotoGallery() {
+  const host = document.querySelector('[data-beth-tephilah-gallery]');
+  if (!host) return;
+  host.innerHTML = BETH_TEPHILAH_PHOTOS.map((photo, index) => `
+    <button class="beth-tephilah-photo-card reveal" type="button" data-photo-index="${index}" aria-label="Open ${photo.alt}">
+      <img src="${photo.thumb}" data-full="${photo.full}" alt="${photo.alt}" loading="lazy" decoding="async" />
+    </button>`).join('');
+
+  const modal = document.createElement('div');
+  modal.className = 'beth-tephilah-lightbox';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('aria-label', 'Beth Tephilah photo viewer');
+  modal.innerHTML = `
+    <button class="beth-tephilah-lightbox-close" type="button" aria-label="Close photo viewer">×</button>
+    <figure>
+      <img alt="" />
+      <figcaption></figcaption>
+    </figure>`;
+  document.body.appendChild(modal);
+
+  const modalImage = modal.querySelector('img');
+  const modalCaption = modal.querySelector('figcaption');
+  const closeButton = modal.querySelector('.beth-tephilah-lightbox-close');
+  let previousFocus;
+
+  const close = () => {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    if (previousFocus) previousFocus.focus();
+  };
+  const open = (index, trigger) => {
+    const photo = BETH_TEPHILAH_PHOTOS[index];
+    if (!photo) return;
+    previousFocus = trigger || document.activeElement;
+    modalImage.src = photo.full;
+    modalImage.alt = photo.alt;
+    modalCaption.textContent = photo.alt;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    closeButton.focus();
+  };
+
+  host.addEventListener('click', event => {
+    const button = event.target.closest('[data-photo-index]');
+    if (!button) return;
+    open(Number(button.dataset.photoIndex), button);
+  });
+  closeButton.addEventListener('click', close);
+  modal.addEventListener('click', event => {
+    if (event.target === modal) close();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && modal.classList.contains('open')) close();
+  });
+}
+
+function setupBethTephilahPhotoScroll() {
+  document.querySelector('[data-scroll-to-photos]')?.addEventListener('click', event => {
+    const target = document.getElementById('beth-tephilah-photos');
+    if (!target) return;
+    event.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
 function currentPage() {
   const path = window.location.pathname.split('/').pop() || 'index.html';
   return path === '' ? 'index.html' : path;
@@ -228,6 +353,9 @@ renderHeader();
 renderFooter();
 renderBottomNav();
 hydrateEvents();
+setupBethTephilahPhotoGallery();
+setupBethTephilahPhotoScroll();
+initBethTephilahPano();
 hydrateEventSelect();
 setupDonationChips();
 setupForms();

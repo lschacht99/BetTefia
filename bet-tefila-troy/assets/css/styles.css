@@ -351,610 +351,156 @@ input:focus, select:focus, textarea:focus { border-color: var(--sky-accent); box
   .heritage-ribbon div { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.16); }
 }
 
-/* ============================================================
-   Hero 360 interactive system
-   The 360° hero lets users "enter the sanctuary" by clicking.
-   The iframe becomes interactive when .tour-active is on parent.
-   ============================================================ */
-
-.hero-360 {
+/* Beth Tephilah KRPano hero + photo gallery */
+.beth-tephilah-360-hero {
   position: relative;
-  height: 100vh;
-  min-height: 700px;
+  min-height: 78vh;
+  min-height: 78svh;
   overflow: hidden;
   isolation: isolate;
-  background: var(--navy);
-}
-
-.hero-360-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.hero-360-bg iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-  pointer-events: none;
-  transform: scale(1.05);
-  filter: brightness(0.82) saturate(0.9);
-  transition: filter 0.6s ease;
-}
-
-.hero-360.tour-active .hero-360-bg iframe {
-  pointer-events: auto;
-  filter: brightness(1) saturate(1);
-  transform: scale(1);
-}
-
-.hero-360-scrim {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background:
-    linear-gradient(90deg, rgba(7,30,45,.88) 0%, rgba(7,30,45,.62) 45%, rgba(7,30,45,.18) 100%),
-    linear-gradient(0deg, rgba(7,30,45,.78) 0%, transparent 55%);
-  pointer-events: none;
-  transition: opacity 0.5s ease;
-}
-
-.hero-360.tour-active .hero-360-scrim {
-  opacity: 0;
-}
-
-.hero-360-content {
-  position: relative;
-  z-index: 3;
-  height: 100%;
   display: flex;
   align-items: flex-end;
-  padding-bottom: clamp(48px, 8vh, 90px);
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+  background: #11212b;
 }
-
-.hero-360.tour-active .hero-360-content {
-  opacity: 0;
-  visibility: hidden;
+.beth-tephilah-pano-wrap,
+.beth-tephilah-pano,
+.beth-tephilah-pano-poster,
+.beth-tephilah-hero-scrim {
+  position: absolute;
+  inset: 0;
+}
+.beth-tephilah-pano-wrap { z-index: 0; }
+.beth-tephilah-pano { min-height: 100%; touch-action: none; background: #11212b; }
+.beth-tephilah-pano-poster {
+  display: grid;
+  place-items: center;
+  color: white;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-shadow: 0 10px 30px rgba(0,0,0,.56);
+  background:
+    linear-gradient(rgba(17,33,43,.24), rgba(17,33,43,.34)),
+    url('https://synagogues-360.anumuseum.org.il/wp-content/uploads/2017/12/united_states_276_01.jpg') center/cover no-repeat;
+  transition: opacity .45s ease, visibility .45s ease;
   pointer-events: none;
 }
-
-.hero-360-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.5fr);
-  gap: 28px;
-  align-items: end;
-  width: 100%;
-}
-
-.hero-360-panel {
-  color: white;
-}
-
-.hero-360-card {
-  color: white;
-  border: 1px solid rgba(255,255,255,.2);
-  background: linear-gradient(145deg, rgba(7,30,45,.76), rgba(7,30,45,.44));
-  border-radius: var(--radius-xl);
-  backdrop-filter: blur(18px);
-  padding: clamp(22px, 3vw, 32px);
-}
-
-.btn-enter-tour {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 15px 26px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--sky-accent), var(--sky-deep));
-  color: white;
-  border: none;
-  font-weight: 800;
-  font-size: 17px;
-  cursor: pointer;
-  letter-spacing: -0.01em;
-  box-shadow: 0 12px 36px rgba(42,109,153,.45);
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-.btn-enter-tour:hover { transform: translateY(-2px); box-shadow: 0 18px 44px rgba(42,109,153,.55); }
-
-.btn-exit-tour {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 200;
-  background: rgba(7,30,45,.85);
-  color: white;
-  border: 1px solid rgba(255,255,255,.28);
-  border-radius: 999px;
-  padding: 11px 22px;
-  font-weight: 700;
-  cursor: pointer;
-  font-size: 15px;
-  backdrop-filter: blur(12px);
-  transition: background .2s;
-  display: none;
-}
-.btn-exit-tour:hover { background: rgba(7,30,45,1); }
-.hero-360.tour-active ~ .btn-exit-tour,
-.hero-360.tour-active + .btn-exit-tour { display: block; }
-
-.hero-360-stats {
-  display: flex;
-  gap: 0;
-  margin-top: 28px;
-}
-.hero-stat {
-  padding: 12px 18px;
-  border-right: 1px solid rgba(255,255,255,.16);
-  min-width: 90px;
-}
-.hero-stat:first-child { padding-left: 0; }
-.hero-stat strong { display: block; font-family: Georgia, serif; font-size: 28px; color: var(--gold-light); line-height: 1; }
-.hero-stat span { display: block; font-size: 12px; color: rgba(255,255,255,.7); margin-top: 4px; letter-spacing: .09em; text-transform: uppercase; }
-
-.scroll-hint {
+.beth-tephilah-360-hero.is-pano-ready .beth-tephilah-pano-poster { opacity: 0; visibility: hidden; }
+.beth-tephilah-pano-fallback {
   position: absolute;
-  bottom: 24px;
   left: 50%;
+  top: 24px;
   transform: translateX(-50%);
   z-index: 3;
-  color: rgba(255,255,255,.6);
-  font-size: 13px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  animation: scrollBounce 2.2s ease-in-out infinite;
+  width: min(92%, 420px);
+  padding: 12px 16px;
+  border-radius: 999px;
+  color: white;
+  text-align: center;
+  font-weight: 850;
+  background: rgba(17,33,43,.78);
+  backdrop-filter: blur(12px);
   pointer-events: none;
 }
-@keyframes scrollBounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
-.scroll-hint svg { opacity: .6; }
-
-/* ============================================================
-   Minyan schedule components (for schedule.html)
-   ============================================================ */
-
-.minyan-today-banner {
-  background: linear-gradient(135deg, var(--sky-deep), var(--navy));
+.beth-tephilah-hero-scrim {
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(17,33,43,.82) 0%, rgba(17,33,43,.52) 42%, rgba(17,33,43,.12) 100%),
+    linear-gradient(0deg, rgba(17,33,43,.74) 0%, rgba(17,33,43,.22) 50%, rgba(17,33,43,.24) 100%);
+  pointer-events: none;
+}
+.beth-tephilah-hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(760px, calc(100% - 32px));
+  margin: 0 auto clamp(26px, 7vh, 74px);
+  padding: clamp(22px, 4vw, 44px);
   color: white;
+  border: 1px solid rgba(255,255,255,.24);
   border-radius: var(--radius-xl);
-  padding: clamp(24px, 4vw, 44px);
-  margin-bottom: 32px;
-}
-.minyan-today-date { font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 8px; }
-.minyan-today-title { font-family: Georgia, serif; font-size: clamp(28px, 4vw, 48px); color: white; margin: 0 0 24px; line-height: 1; }
-
-.minyan-services { display: grid; gap: 14px; }
-.minyan-service {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  background: rgba(255,255,255,.1);
-  border: 1px solid rgba(255,255,255,.16);
-  border-radius: 18px;
-  padding: 16px 22px;
-  flex-wrap: wrap;
-}
-.minyan-service-name { font-weight: 800; font-size: 18px; color: white; min-width: 140px; }
-.minyan-service-time { color: rgba(255,255,255,.82); font-size: 16px; flex: 1; }
-.minyan-service-rsvp { display: flex; align-items: center; gap: 12px; }
-
-.btn-rsvp {
-  padding: 10px 20px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.32);
-  background: rgba(255,255,255,.14);
-  color: white;
-  font-weight: 700;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background .2s, border-color .2s, color .2s;
-}
-.btn-rsvp:hover { background: rgba(255,255,255,.24); }
-.btn-rsvp.confirmed {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--navy);
-}
-.minyan-count { font-size: 13px; color: rgba(255,255,255,.65); white-space: nowrap; }
-.minyan-count.has-minyan { color: #7effa8; font-weight: 700; }
-
-.weekly-schedule-grid {
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 10px;
-}
-.day-column {
-  background: var(--glass-strong);
-  border: 1px solid rgba(255,255,255,.72);
-  border-radius: var(--radius-lg);
+  background: linear-gradient(145deg, rgba(17,33,43,.76), rgba(17,33,43,.42));
+  box-shadow: 0 32px 90px rgba(0,0,0,.32);
   backdrop-filter: blur(18px);
-  overflow: hidden;
-  transition: transform .2s, box-shadow .2s;
+  pointer-events: auto;
 }
-.day-column:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-.day-column.is-today { border-color: var(--sky-accent); box-shadow: 0 0 0 2px var(--sky-accent), var(--shadow); }
-.day-column.is-shabbat { border-color: var(--gold); }
-.day-header {
-  padding: 12px 14px;
-  background: linear-gradient(135deg, var(--sky-deep), var(--navy));
-  color: white;
-  font-weight: 800;
-  font-size: 13px;
-  letter-spacing: .05em;
-  text-align: center;
-}
-.day-column.is-today .day-header { background: linear-gradient(135deg, var(--sky-accent), var(--sky-deep)); }
-.day-column.is-shabbat .day-header { background: linear-gradient(135deg, #7c5c1a, #3d2e0d); color: var(--gold-light); }
-.day-services { padding: 12px; display: grid; gap: 8px; }
-.day-service { padding: 8px 10px; border-radius: 10px; background: rgba(255,255,255,.6); }
-.day-service-label { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--sky-mid); font-weight: 700; }
-.day-service-time { font-size: 14px; font-weight: 800; color: var(--navy); }
-
-/* Event cards (for schedule.html) */
-.event-card {
-  padding: 26px;
-  border-radius: var(--radius-lg);
-  background: rgba(255,255,255,.72);
-  border: 1px solid rgba(255,255,255,.82);
-  box-shadow: 0 14px 38px rgba(7,30,45,.08);
-  transition: transform .25s, box-shadow .25s;
-}
-.event-card:hover { transform: translateY(-4px); box-shadow: 0 22px 52px rgba(7,30,45,.13); }
-.event-date-badge {
+.beth-tephilah-hero-content .eyebrow { color: #f3d69a; }
+.beth-tephilah-hero-content h1 { font-size: clamp(44px, 8vw, 104px); text-shadow: 0 18px 50px rgba(0,0,0,.36); }
+.beth-tephilah-hero-content .lede { color: rgba(255,255,255,.86); margin-bottom: 0; }
+.beth-tephilah-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 24px; }
+.instruction-badge {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
-  background: linear-gradient(135deg, var(--sky-accent), var(--sky-deep));
+  min-height: 48px;
+  padding: 12px 16px;
+  border-radius: 999px;
   color: white;
-  border-radius: 14px;
-  padding: 8px 14px;
-  margin-bottom: 14px;
-  min-width: 60px;
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.24);
+  font-weight: 900;
 }
-.event-date-badge .month { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; opacity: .8; }
-.event-date-badge .day-num { font-family: Georgia, serif; font-size: 26px; line-height: 1; font-weight: bold; }
-
-/* ============================================================
-   Booking page components
-   ============================================================ */
-
-.simcha-grid {
+.beth-tephilah-photo-section { scroll-margin-top: 96px; }
+.beth-tephilah-photo-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
-.simcha-card {
-  padding: 28px 22px;
-  border-radius: var(--radius-lg);
-  background: rgba(255,255,255,.7);
-  border: 2px solid rgba(255,255,255,.82);
-  box-shadow: 0 10px 30px rgba(7,30,45,.08);
+.beth-tephilah-photo-card {
+  border: 0;
+  padding: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(255,255,255,.72);
+  box-shadow: 0 16px 42px rgba(17,33,43,.14);
   cursor: pointer;
-  transition: transform .2s, border-color .2s, box-shadow .2s;
-  text-align: center;
 }
-.simcha-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(7,30,45,.14); border-color: var(--sky); }
-.simcha-card.selected { border-color: var(--sky-accent); background: rgba(42,109,153,.08); box-shadow: 0 0 0 3px rgba(42,109,153,.25), 0 20px 50px rgba(7,30,45,.14); }
-.simcha-icon { font-size: 36px; margin-bottom: 12px; display: block; }
-.simcha-card h3 { font-size: 20px; margin: 0 0 8px; font-family: Georgia, serif; letter-spacing: -.03em; }
-.simcha-card p { font-size: 14px; color: var(--navy-soft); margin: 0; line-height: 1.5; }
-
-/* ============================================================
-   Social feed section
-   ============================================================ */
-
-.social-feed-section {
-  background: linear-gradient(160deg, var(--navy) 0%, var(--sky-deep) 100%);
-  padding: 72px 0;
-  overflow: hidden;
-}
-.social-feed-header h2 { color: white; }
-.social-feed-header p { color: rgba(255,255,255,.72); }
-.social-feed-header .eyebrow { color: var(--gold-light); }
-.social-feed-embed {
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.16);
-}
-.social-follow-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-.social-card {
-  padding: 28px;
-  border-radius: var(--radius-lg);
-  background: rgba(255,255,255,.1);
-  border: 1px solid rgba(255,255,255,.18);
-  color: white;
-}
-.social-card h3 { color: white; font-family: Georgia, serif; margin: 0 0 10px; font-size: 24px; }
-.social-card p { color: rgba(255,255,255,.7); margin: 0 0 18px; }
-
-/* ============================================================
-   History timeline
-   ============================================================ */
-
-.timeline-big {
-  display: grid;
-  gap: 0;
-  position: relative;
-}
-.timeline-big::before {
-  content: '';
-  position: absolute;
-  left: 48px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(180deg, var(--sky-accent), transparent);
-}
-.timeline-entry {
-  display: grid;
-  grid-template-columns: 96px 1fr;
-  gap: 24px;
-  padding: 32px 0;
-  align-items: start;
-}
-.timeline-year {
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-.timeline-year-num {
-  font-family: Georgia, serif;
-  font-size: 22px;
-  font-weight: bold;
-  color: var(--sky-deep);
-  background: var(--sky-light);
-  border: 3px solid var(--sky-accent);
-  border-radius: 50%;
-  width: 72px;
-  height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  line-height: 1.1;
-  font-size: 16px;
-  box-shadow: 0 8px 24px rgba(42,109,153,.25);
-}
-.timeline-body h3 { margin: 0 0 10px; }
-.timeline-body p { margin: 0; }
-
-/* ============================================================
-   Donation enhancements
-   ============================================================ */
-
-.donation-impact-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  margin: 28px 0;
-}
-.impact-card {
-  padding: 20px 16px;
-  border-radius: var(--radius-lg);
-  background: rgba(255,255,255,.7);
-  border: 1px solid rgba(255,255,255,.82);
-  text-align: center;
-}
-.impact-amount {
-  font-family: Georgia, serif;
-  font-size: 28px;
-  color: var(--sky-accent);
-  font-weight: bold;
-  display: block;
-}
-.impact-desc { font-size: 13px; color: var(--navy-soft); margin-top: 6px; }
-
-/* ============================================================
-   Section utility
-   ============================================================ */
-
-.section-360 { background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(163,196,217,.26), rgba(255,255,255,.08)); }
-.event-hero { padding-bottom: 28px; }
-
-/* ============================================================
-   Mobile responsive additions
-   ============================================================ */
-
-@media (max-width: 860px) {
-  .hero-360-inner { grid-template-columns: 1fr; }
-  .hero-360-card { display: none; }
-  .weekly-schedule-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .simcha-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .social-follow-cards { grid-template-columns: 1fr; }
-  .donation-impact-grid { grid-template-columns: repeat(2, 1fr); }
-  .minyan-service { flex-direction: column; align-items: flex-start; }
-}
-@media (max-width: 560px) {
-  .weekly-schedule-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .simcha-grid { grid-template-columns: 1fr; }
-}
-
-/* ============================================================
-   RSVP MODAL
-   ============================================================ */
-.modal-backdrop {
+.beth-tephilah-photo-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; transition: transform .28s ease; }
+.beth-tephilah-photo-card:hover img,
+.beth-tephilah-photo-card:focus-visible img { transform: scale(1.045); }
+.beth-tephilah-lightbox {
   position: fixed;
   inset: 0;
-  z-index: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background: rgba(7, 30, 45, 0.74);
-  backdrop-filter: blur(10px);
-  animation: modalFadeIn .2s ease;
-}
-.modal-backdrop[hidden] { display: none; }
-@keyframes modalFadeIn { from { opacity: 0; } to { opacity: 1; } }
-.modal-box {
-  background: var(--sky-wash);
-  border: 1px solid rgba(255,255,255,.82);
-  border-radius: var(--radius-xl);
-  padding: clamp(26px, 5vw, 44px);
-  max-width: 500px;
-  width: 100%;
-  position: relative;
-  box-shadow: 0 32px 80px rgba(7,30,45,.32);
-  animation: modalSlideUp .25s ease;
-}
-@keyframes modalSlideUp { from { transform: translateY(16px); opacity: 0; } to { transform: none; opacity: 1; } }
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: rgba(7,30,45,.08);
-  border: none;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--navy);
-  transition: background .2s;
-}
-.modal-close:hover { background: rgba(7,30,45,.16); }
-.modal-eyebrow { color: var(--copper-dark); text-transform: uppercase; letter-spacing: .16em; font-weight: 850; font-size: 12px; margin-bottom: 8px; }
-.modal-title { font-family: Georgia, serif; font-size: clamp(24px, 4vw, 36px); letter-spacing: -.04em; line-height: 1; margin: 0 0 10px; color: var(--navy); }
-.modal-desc { font-size: 16px; color: var(--navy-soft); margin: 0 0 22px; line-height: 1.6; }
-.modal-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
-.modal-confirm { font-size: 17px; }
-.field-optional { font-weight: 400; color: var(--sky-mid); font-size: 13px; }
-
-/* ============================================================
-   MOBILE FIRST — BOTTOM NAVIGATION
-   ============================================================ */
-.bottom-nav {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
   z-index: 100;
-  background: rgba(7, 30, 45, 0.97);
-  backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(255,255,255,.1);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
-  box-shadow: 0 -8px 32px rgba(7,30,45,.28);
-}
-.bottom-nav a {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+  display: none;
   align-items: center;
-  gap: 3px;
-  padding: 10px 4px;
-  text-decoration: none;
-  color: rgba(255,255,255,.58);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  font-weight: 700;
-  transition: color .15s;
-  min-height: 56px;
   justify-content: center;
-  -webkit-tap-highlight-color: transparent;
+  padding: 22px;
+  background: rgba(17,33,43,.86);
+  backdrop-filter: blur(12px);
 }
-.bottom-nav a:active { background: rgba(255,255,255,.06); }
-.bottom-nav .bnav-icon { font-size: 22px; line-height: 1; }
-.bottom-nav a.active { color: var(--gold-light); }
-.bottom-nav a:hover { color: white; }
-
+.beth-tephilah-lightbox.open { display: flex; }
+.beth-tephilah-lightbox figure { margin: 0; width: min(1080px, 100%); color: white; }
+.beth-tephilah-lightbox img { width: 100%; max-height: 82vh; object-fit: contain; border-radius: 24px; box-shadow: 0 24px 80px rgba(0,0,0,.45); background: rgba(255,255,255,.08); }
+.beth-tephilah-lightbox figcaption { margin-top: 12px; font-weight: 800; color: rgba(255,255,255,.86); }
+.beth-tephilah-lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 999px;
+  color: var(--ink);
+  background: white;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+@media (min-width: 861px) {
+  .beth-tephilah-360-hero { min-height: 82vh; min-height: 82svh; }
+  .beth-tephilah-hero-content { margin-left: max(32px, calc((100vw - var(--max)) / 2)); margin-right: auto; }
+}
 @media (max-width: 860px) {
-  .bottom-nav { display: flex; }
-  body { padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px)); }
-
-  /* Better mobile hero */
-  .hero-360-bg iframe {
-    transform: scale(1.2);
-    transform-origin: center top;
+  .beth-tephilah-360-hero { min-height: max(540px, 78vh); min-height: max(540px, 78svh); }
+  .beth-tephilah-hero-scrim { background: linear-gradient(0deg, rgba(17,33,43,.84), rgba(17,33,43,.34)); }
+  .beth-tephilah-hero-content { padding: 20px; border-radius: 26px; }
+  .beth-tephilah-hero-content h1 { font-size: clamp(40px, 13vw, 64px); }
+  .beth-tephilah-hero-actions .button,
+  .instruction-badge { width: 100%; justify-content: center; }
+  .beth-tephilah-photo-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 12px;
+    -webkit-overflow-scrolling: touch;
   }
-  .hero-360-content { padding-top: 70px; }
-  h1 { font-size: clamp(44px, 12vw, 80px); }
-  .hero-360-stats { flex-wrap: wrap; gap: 0; }
-  .hero-stat { min-width: 80px; }
-
-  /* Touch-friendly buttons */
-  .button { min-height: 50px; padding: 14px 20px; font-size: 16px; }
-  .btn-rsvp { min-height: 44px; padding: 10px 18px; font-size: 15px; }
-  .btn-enter-tour { min-height: 54px; padding: 16px 28px; font-size: 18px; width: 100%; justify-content: center; }
-  .actions { flex-direction: column; }
-  .actions .button { width: 100%; justify-content: center; }
-
-  /* Mobile minyan service */
-  .minyan-service {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  .minyan-service-rsvp { width: 100%; }
-  .btn-rsvp { width: 100%; justify-content: center; display: flex; }
-  .minyan-count { text-align: center; width: 100%; }
-
-  /* Mobile modal */
-  .modal-box { border-radius: 24px; }
-  .modal-actions { flex-direction: column; }
-  .modal-actions .button { width: 100%; justify-content: center; }
-
-  /* Weekly grid: 4 cols on tablet, 2 on phone */
-  .weekly-schedule-grid { grid-template-columns: repeat(4, 1fr); gap: 6px; }
-  .day-header { font-size: 11px; padding: 8px 6px; }
-  .day-service-time { font-size: 12px; }
-  .day-service-label { font-size: 10px; }
+  .beth-tephilah-photo-card { flex: 0 0 82%; scroll-snap-align: start; }
 }
-
-@media (max-width: 560px) {
-  .weekly-schedule-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero-360 { min-height: 100svh; }
-  .modal-backdrop { align-items: flex-end; padding: 0; }
-  .modal-box {
-    border-radius: 24px 24px 0 0;
-    max-width: 100%;
-    padding: 28px 24px;
-    padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
-    animation: modalSlideUpSheet .28s ease;
-  }
-  @keyframes modalSlideUpSheet { from { transform: translateY(100%); } to { transform: none; } }
-  .simcha-grid { grid-template-columns: 1fr 1fr; }
-}
-
-/* ============================================================
-   MOBILE NAVIGATION IMPROVEMENTS
-   ============================================================ */
-@media (max-width: 860px) {
-  .site-header { backdrop-filter: blur(20px); }
-  .navbar { min-height: 64px; }
-  .brand-link img { width: 42px; height: 42px; }
-  .brand-name { font-size: 18px; }
-  .brand-kicker { font-size: 10px; }
-}
-
-/* ============================================================
-   SMOOTH SCROLL + OVERSCROLL
-   ============================================================ */
-html { scroll-behavior: smooth; overscroll-behavior: none; }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-  html { scroll-behavior: auto; }
-}
-
-/* ============================================================
-   CARD IMPROVEMENTS — mobile touch friendly
-   ============================================================ */
-.card { -webkit-tap-highlight-color: transparent; cursor: default; }
-.simcha-card { -webkit-tap-highlight-color: transparent; }
-.simcha-card:focus-visible { outline: 3px solid var(--sky-accent); outline-offset: 4px; }
-.event-card { -webkit-tap-highlight-color: transparent; }
-
-/* ============================================================
-   ADMIN LINK (optional, shown in footer)
-   ============================================================ */
-.admin-link-footer { font-size: 12px; opacity: .4; margin-top: 8px; }
-.admin-link-footer:hover { opacity: .7; }
