@@ -12,33 +12,35 @@
   <div class="site-shell">
     <div data-shared-header></div>
     <main id="main">
-      <section class="hero hero-immersive hero-tour-background" aria-label="Beth Tephilah 360 sanctuary hero">
-        <div class="tour-background" aria-hidden="true">
-          <iframe src="https://synagogues-360.anumuseum.org.il/gallery/beth-tephilah/" title="Beth Tephilah Synagogue 360 degree sanctuary tour background" loading="eager" tabindex="-1"></iframe>
-          <div class="tour-scrim"></div>
-        </div>
-        <div class="container hero-overlay-grid">
-          <div class="hero-panel reveal">
-            <div class="eyebrow">360° sanctuary · National Register · Living shul</div>
-            <h1>Step inside Beth Tephilah before you arrive.</h1>
-            <p class="lede">The 360° sanctuary is the front door: a historic Troy synagogue you can look around now, then visit for prayer, kosher meals, student life, family milestones, and Jewish hospitality on River Street.</p>
-            <div class="actions">
-              <a class="button primary" href="https://synagogues-360.anumuseum.org.il/gallery/beth-tephilah/">Explore the 360° sanctuary</a>
-              <a class="button secondary" href="event-registration.html">Join an event</a>
-              <a class="button copper" href="contact.html">Plan a visit</a>
-            </div>
-            <div class="hero-proof" aria-label="Key facts">
-              <span>Congregation roots: 1850</span>
-              <span>River Street building: 1909</span>
-              <span>National Register: May 2016</span>
-            </div>
+      <section class="beth-tephilah-360-hero" aria-label="Interactive 360 degree tour of Beth Tephilah synagogue">
+        <div class="beth-tephilah-pano-wrap">
+          <div id="beth-tephilah-pano" class="beth-tephilah-pano" role="application" aria-label="Interactive 360 degree tour of Beth Tephilah synagogue"></div>
+          <div class="beth-tephilah-pano-poster" data-pano-poster>
+            <span>Loading 360° view…</span>
           </div>
-          <aside class="hero-history-card reveal" aria-label="Historic summary">
-            <span class="tag">House of Prayer</span>
-            <h2>Protected history. Active table.</h2>
-            <p>Beth Tephilah means “House of Prayer.” Its architecture, dome, sanctuary, and balcony tell a 1909 story — but the building is still here for minyanim, meals, travelers, students, simchas, and family history.</p>
-          </aside>
+          <div class="beth-tephilah-pano-fallback" data-pano-fallback hidden>360 view unavailable — see photos below.</div>
+          <div class="beth-tephilah-hero-scrim" aria-hidden="true"></div>
         </div>
+        <div class="beth-tephilah-hero-content reveal">
+          <div class="eyebrow">360° TOUR</div>
+          <h1>Step Inside Beth Tephilah</h1>
+          <p class="lede">Explore Troy’s historic synagogue in 360°</p>
+          <div class="beth-tephilah-hero-actions">
+            <span class="instruction-badge">Drag to look around</span>
+            <a class="button copper" href="#beth-tephilah-photos" data-scroll-to-photos>See the photos</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section beth-tephilah-photo-section" id="beth-tephilah-photos" aria-labelledby="beth-tephilah-photos-title">
+        <div class="container section-header reveal">
+          <div>
+            <div class="eyebrow">Sanctuary gallery</div>
+            <h2 id="beth-tephilah-photos-title">Beth Tephilah Photos</h2>
+          </div>
+          <p>Swipe on mobile or browse the desktop grid. Each image opens full-size so visitors can study the sanctuary, details, and historic atmosphere before they arrive.</p>
+        </div>
+        <div class="container beth-tephilah-photo-grid" data-beth-tephilah-gallery></div>
       </section>
 
       <section class="section history-feature">
