@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Beth Tephilah Synagogue — Historic Troy, Living Jewish Community</title>
-  <meta name="description" content="Beth Tephilah Synagogue in Troy, NY: a National Register historic synagogue with a 360 sanctuary tour, kosher meals, student programs, Shabbat minyanim, travelers' support, lifecycle events, and community gatherings." />
+  <title>Beth Tephila Synagogue — Faith, Family, and Future</title>
+  <meta name="description" content="Beth Tephila Synagogue in Troy, NY: a warm, historic, and welcoming Jewish community with a 360 sanctuary tour, photos, events, prayer, and hospitality." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -12,42 +12,44 @@
   <div class="site-shell">
     <div data-shared-header></div>
     <main id="main">
-      <section class="hero hero-immersive hero-tour-background" aria-label="Beth Tephilah 360 sanctuary hero">
-        <div class="tour-background" aria-hidden="true">
-          <iframe src="https://synagogues-360.anumuseum.org.il/gallery/beth-tephilah/" title="Beth Tephilah Synagogue 360 degree sanctuary tour background" loading="eager" tabindex="-1"></iframe>
-          <div class="tour-scrim"></div>
-        </div>
-        <div class="container hero-overlay-grid">
-          <div class="hero-panel reveal">
-            <div class="eyebrow">360° sanctuary · National Register · Living shul</div>
-            <h1>Step inside Beth Tephilah before you arrive.</h1>
-            <p class="lede">The 360° sanctuary is the front door: a historic Troy synagogue you can look around now, then visit for prayer, kosher meals, student life, family milestones, and Jewish hospitality on River Street.</p>
-            <div class="actions">
-              <a class="button primary" href="https://synagogues-360.anumuseum.org.il/gallery/beth-tephilah/">Explore the 360° sanctuary</a>
-              <a class="button secondary" href="event-registration.html">Join an event</a>
-              <a class="button copper" href="contact.html">Plan a visit</a>
-            </div>
-            <div class="hero-proof" aria-label="Key facts">
-              <span>Congregation roots: 1850</span>
-              <span>River Street building: 1909</span>
-              <span>National Register: May 2016</span>
-            </div>
+      <section class="beth-tephilah-360-hero" aria-label="Interactive 360 degree tour of Beth Tephila synagogue">
+        <div class="beth-tephilah-pano-wrap">
+          <iframe id="beth-tephilah-pano" class="beth-tephilah-pano beth-tephilah-hosted-tour" src="https://synagogues-360.anumuseum.org.il/gallery/beth-tephilah/" title="Interactive 360 degree tour of Beth Tephila synagogue" loading="eager" allowfullscreen></iframe>
+          <div class="beth-tephilah-pano-poster" data-pano-poster>
+            <span>Loading 360° view…</span>
           </div>
-          <aside class="hero-history-card reveal" aria-label="Historic summary">
-            <span class="tag">House of Prayer</span>
-            <h2>Protected history. Active table.</h2>
-            <p>Beth Tephilah means “House of Prayer.” Its architecture, dome, sanctuary, and balcony tell a 1909 story — but the building is still here for minyanim, meals, travelers, students, simchas, and family history.</p>
-          </aside>
+          <div class="beth-tephilah-hero-scrim" aria-hidden="true"></div>
         </div>
+        <div class="beth-tephilah-hero-content reveal">
+          <div class="hero-brand-lockup"><img src="assets/img/bet-tefila-mark.svg" alt="" /><span><strong>Beth Tephila</strong><small>Synagogue</small></span></div>
+          <div class="eyebrow">360° TOUR</div>
+          <h1>A place of faith, family, and future.</h1>
+          <p class="lede">Explore Troy’s historic synagogue in 360° and discover a warm community built around prayer, tradition, and welcome.</p>
+          <div class="beth-tephilah-hero-actions">
+            <span class="instruction-badge">Drag to look around</span>
+            <a class="button copper" href="#beth-tephilah-photos" data-scroll-to-photos>See the photos</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section beth-tephilah-photo-section" id="beth-tephilah-photos" aria-labelledby="beth-tephilah-photos-title">
+        <div class="container section-header reveal">
+          <div>
+            <div class="eyebrow">Sanctuary gallery</div>
+            <h2 id="beth-tephilah-photos-title">Beth Tephila Photos</h2>
+          </div>
+          <p>Swipe on mobile or browse the desktop grid. Each image opens full-size so visitors can study the sanctuary, details, and historic atmosphere before they arrive.</p>
+        </div>
+        <div class="container beth-tephilah-photo-grid" data-beth-tephilah-gallery></div>
       </section>
 
       <section class="section history-feature">
         <div class="container section-header reveal">
           <div>
-            <div class="eyebrow">History has to be visible</div>
-            <h2>A landmark with a pulse.</h2>
+            <div class="eyebrow">About</div>
+            <h2>Warm, historic, and communal.</h2>
           </div>
-          <p>Beth Tephilah is located in Troy’s Central Historic District and was placed on the National Register of Historic Places in May 2016. The message is simple: this is protected American Jewish history, and it is still alive.</p>
+          <p>Beth Tephila is located in Troy’s Central Historic District and was placed on the National Register of Historic Places in May 2016. The message is simple: this is protected American Jewish history, and it remains a living home for faith, family, and community.</p>
         </div>
         <div class="container heritage-ribbon reveal" aria-label="Historic timeline highlights">
           <div><strong>1850</strong><span>Congregation roots in Troy Jewish life</span></div>
@@ -59,10 +61,10 @@
 
       <section class="section section-live">
         <div class="container grid four fact-grid">
-          <article class="card reveal"><span class="tag">Prayer</span><h3>Minyanim</h3><p>Call ahead for Shabbat minyan details and current gathering times, especially if you are traveling through Troy.</p></article>
-          <article class="card reveal"><span class="tag">Kosher</span><h3>Meals</h3><p>Shabbat and holiday meals make the historic building warm, practical, and welcoming for guests and students.</p></article>
-          <article class="card reveal"><span class="tag">Simchas</span><h3>Milestones</h3><p>Bar and Bat Mitzvahs, weddings, Brit Milah, Upsherin/Chalakah, family Shabbat meals, and meaningful gatherings belong in a sacred place.</p></article>
-          <article class="card reveal"><span class="tag">Heritage</span><h3>Family history</h3><p>Visitors researching Troy Jewish roots can ask about tours, cemetery questions, old community memories, and genealogy leads.</p></article>
+          <article class="card reveal"><span class="tag">Celebrate</span><h3>Minyanim</h3><p>Call ahead for Shabbat minyan details and current gathering times, especially if you are traveling through Troy.</p></article>
+          <article class="card reveal"><span class="tag">Community</span><h3>Meals</h3><p>Shabbat and holiday meals make the historic building warm, practical, and welcoming for guests and students.</p></article>
+          <article class="card reveal"><span class="tag">Family</span><h3>Milestones</h3><p>Engagements, Bar and Bat Mitzvahs, Brit Milah, Upsherin/Chalakah, family Shabbat meals, and small simchos belong in a sacred place.</p></article>
+          <article class="card reveal"><span class="tag">Learn</span><h3>Family history</h3><p>Visitors researching Troy Jewish roots can ask about tours, cemetery questions, old community memories, and genealogy leads.</p></article>
         </div>
       </section>
 
@@ -76,9 +78,9 @@
             <div class="actions"><a class="button primary" href="events.html">Welcome your event</a><a class="button secondary" href="contact.html">Ask for a tour</a></div>
           </div>
           <div class="glass-card form-card reveal wall-card deep-history-card">
-            <div class="eyebrow">Sanctuary wall blue</div>
-            <h2>A quiet blue, like the wall.</h2>
-            <p>The site color now follows the blue-gray wall tone from your reference: calm, historic, serious, and luminous enough to speak to young visitors without losing dignity.</p>
+            <div class="eyebrow">Identity</div>
+            <h2>Deep blue, warm gold, and ivory light.</h2>
+            <p>The site now follows the Beth Tephila visual identity: deep blue for trust, petrol blue for welcome, warm gold for celebration, ivory for softness, and wood tones for history.</p>
             <ul class="detail-list">
               <li>Neo-Classical design</li>
               <li>Doric columns</li>

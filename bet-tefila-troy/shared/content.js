@@ -1,7 +1,7 @@
 window.BET_TEFILA_CONTENT = {
-  name: 'Beth Tephilah Synagogue',
-  displayName: 'Beth Tephilah Synagogue',
-  shortName: 'Beth Tephilah',
+  name: 'Beth Tephila Synagogue',
+  displayName: 'Beth Tephila Synagogue',
+  shortName: 'Beth Tephila',
   hebrewMeaning: 'House of Prayer',
   address: '82 River Street, Troy, NY 12180',
   phone: '(518) 272-3182',
@@ -11,12 +11,12 @@ window.BET_TEFILA_CONTENT = {
   nav: [
     { href: 'index.html', label: 'Home' },
     { href: 'events.html', label: 'Events' },
-    { href: 'event-registration.html', label: 'Join an Event' },
+    { href: 'event-registration.html', label: 'Plan a Simcha' },
     { href: 'contact.html', label: 'Contact' },
     { href: 'donate.html', label: 'Donate' }
   ],
   facts: [
-    'Beth Tephilah means House of Prayer',
+    'Beth Tephila means House of Prayer',
     'Historic synagogue overlooking the Hudson River',
     'Original congregation established in 1850',
     'River Street synagogue building constructed in 1909',
@@ -25,13 +25,13 @@ window.BET_TEFILA_CONTENT = {
     'Neo-Classical exterior with Doric columns and a copper dome',
     'Barrel-vaulted sanctuary with a women’s balcony supported by Doric columns',
     'Orthodox / Chabad Jewish life in downtown Troy',
-    'Call ahead for Shabbat minyan, kosher meals, visits, and traveler logistics'
+    'Call ahead for Shabbat minyan, kosher meals, community visits, and traveler logistics'
   ],
   historyHighlights: [
     {
       year: '1850',
       title: 'Congregation roots',
-      text: 'The original Beth Tephilah congregation was established in Troy when the local Jewish community was growing.'
+      text: 'The original Beth Tephila congregation was established in Troy when the local Jewish community was growing.'
     },
     {
       year: '1909',
@@ -41,7 +41,7 @@ window.BET_TEFILA_CONTENT = {
     {
       year: '2016',
       title: 'National Register',
-      text: 'Beth Tephilah was placed on the National Register of Historic Places in May 2016 as part of Troy’s historic fabric.'
+      text: 'Beth Tephila was placed on the National Register of Historic Places in May 2016 as part of Troy’s historic fabric.'
     },
     {
       year: 'Today',
@@ -61,17 +61,17 @@ window.BET_TEFILA_CONTENT = {
   events: [
     {
       id: 'bar-bat-mitzvah',
-      title: 'Bar / Bat Mitzvah at Beth Tephilah',
+      title: 'Bar / Bat Mitzvah at Beth Tephila',
       tag: 'Coming of age',
       date: 'By family planning',
-      description: 'A sacred milestone in a sanctuary with memory: Torah, family seating, kosher meal planning, and a serious historic atmosphere.'
+      description: 'A sacred milestone with Torah, family seating, kosher meal planning, and a warm historic atmosphere.'
     },
     {
-      id: 'wedding-sheva-brachot',
-      title: 'Wedding, Aufruf, or Sheva Brachot',
-      tag: 'Simcha',
+      id: 'engagement-vort-lchaim',
+      title: 'Engagement / Vort / L’Chaim',
+      tag: 'Engagement',
       date: 'By appointment',
-      description: 'Welcome a couple, family, and guests into a dignified Jewish setting for prayer, blessings, kosher food, and community warmth.'
+      description: 'Gather close family and friends for a warm l’chaim, vort, or engagement moment with kosher refreshments and community dignity.'
     },
     {
       id: 'brit-milah',
@@ -113,7 +113,7 @@ window.BET_TEFILA_CONTENT = {
       title: 'Holiday Table & Community Dinner',
       tag: 'Kosher food',
       date: 'Holiday calendar',
-      description: 'Seasonal Jewish holiday programs, seders, festival meals, music, stories, and room for guests, families, students, and travelers.'
+      description: 'Seasonal Jewish holiday programs, seders, festival meals, stories, and room for guests, families, students, and travelers.'
     }
   ]
 };
