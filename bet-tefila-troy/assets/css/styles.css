@@ -773,3 +773,188 @@ input:focus, select:focus, textarea:focus { border-color: var(--sky-accent); box
   .weekly-schedule-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .simcha-grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   RSVP MODAL
+   ============================================================ */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(7, 30, 45, 0.74);
+  backdrop-filter: blur(10px);
+  animation: modalFadeIn .2s ease;
+}
+.modal-backdrop[hidden] { display: none; }
+@keyframes modalFadeIn { from { opacity: 0; } to { opacity: 1; } }
+.modal-box {
+  background: var(--sky-wash);
+  border: 1px solid rgba(255,255,255,.82);
+  border-radius: var(--radius-xl);
+  padding: clamp(26px, 5vw, 44px);
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 32px 80px rgba(7,30,45,.32);
+  animation: modalSlideUp .25s ease;
+}
+@keyframes modalSlideUp { from { transform: translateY(16px); opacity: 0; } to { transform: none; opacity: 1; } }
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(7,30,45,.08);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+  transition: background .2s;
+}
+.modal-close:hover { background: rgba(7,30,45,.16); }
+.modal-eyebrow { color: var(--copper-dark); text-transform: uppercase; letter-spacing: .16em; font-weight: 850; font-size: 12px; margin-bottom: 8px; }
+.modal-title { font-family: Georgia, serif; font-size: clamp(24px, 4vw, 36px); letter-spacing: -.04em; line-height: 1; margin: 0 0 10px; color: var(--navy); }
+.modal-desc { font-size: 16px; color: var(--navy-soft); margin: 0 0 22px; line-height: 1.6; }
+.modal-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+.modal-confirm { font-size: 17px; }
+.field-optional { font-weight: 400; color: var(--sky-mid); font-size: 13px; }
+
+/* ============================================================
+   MOBILE FIRST — BOTTOM NAVIGATION
+   ============================================================ */
+.bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(7, 30, 45, 0.97);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  box-shadow: 0 -8px 32px rgba(7,30,45,.28);
+}
+.bottom-nav a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 10px 4px;
+  text-decoration: none;
+  color: rgba(255,255,255,.58);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-weight: 700;
+  transition: color .15s;
+  min-height: 56px;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.bottom-nav a:active { background: rgba(255,255,255,.06); }
+.bottom-nav .bnav-icon { font-size: 22px; line-height: 1; }
+.bottom-nav a.active { color: var(--gold-light); }
+.bottom-nav a:hover { color: white; }
+
+@media (max-width: 860px) {
+  .bottom-nav { display: flex; }
+  body { padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px)); }
+
+  /* Better mobile hero */
+  .hero-360-bg iframe {
+    transform: scale(1.2);
+    transform-origin: center top;
+  }
+  .hero-360-content { padding-top: 70px; }
+  h1 { font-size: clamp(44px, 12vw, 80px); }
+  .hero-360-stats { flex-wrap: wrap; gap: 0; }
+  .hero-stat { min-width: 80px; }
+
+  /* Touch-friendly buttons */
+  .button { min-height: 50px; padding: 14px 20px; font-size: 16px; }
+  .btn-rsvp { min-height: 44px; padding: 10px 18px; font-size: 15px; }
+  .btn-enter-tour { min-height: 54px; padding: 16px 28px; font-size: 18px; width: 100%; justify-content: center; }
+  .actions { flex-direction: column; }
+  .actions .button { width: 100%; justify-content: center; }
+
+  /* Mobile minyan service */
+  .minyan-service {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .minyan-service-rsvp { width: 100%; }
+  .btn-rsvp { width: 100%; justify-content: center; display: flex; }
+  .minyan-count { text-align: center; width: 100%; }
+
+  /* Mobile modal */
+  .modal-box { border-radius: 24px; }
+  .modal-actions { flex-direction: column; }
+  .modal-actions .button { width: 100%; justify-content: center; }
+
+  /* Weekly grid: 4 cols on tablet, 2 on phone */
+  .weekly-schedule-grid { grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .day-header { font-size: 11px; padding: 8px 6px; }
+  .day-service-time { font-size: 12px; }
+  .day-service-label { font-size: 10px; }
+}
+
+@media (max-width: 560px) {
+  .weekly-schedule-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-360 { min-height: 100svh; }
+  .modal-backdrop { align-items: flex-end; padding: 0; }
+  .modal-box {
+    border-radius: 24px 24px 0 0;
+    max-width: 100%;
+    padding: 28px 24px;
+    padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+    animation: modalSlideUpSheet .28s ease;
+  }
+  @keyframes modalSlideUpSheet { from { transform: translateY(100%); } to { transform: none; } }
+  .simcha-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ============================================================
+   MOBILE NAVIGATION IMPROVEMENTS
+   ============================================================ */
+@media (max-width: 860px) {
+  .site-header { backdrop-filter: blur(20px); }
+  .navbar { min-height: 64px; }
+  .brand-link img { width: 42px; height: 42px; }
+  .brand-name { font-size: 18px; }
+  .brand-kicker { font-size: 10px; }
+}
+
+/* ============================================================
+   SMOOTH SCROLL + OVERSCROLL
+   ============================================================ */
+html { scroll-behavior: smooth; overscroll-behavior: none; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  html { scroll-behavior: auto; }
+}
+
+/* ============================================================
+   CARD IMPROVEMENTS — mobile touch friendly
+   ============================================================ */
+.card { -webkit-tap-highlight-color: transparent; cursor: default; }
+.simcha-card { -webkit-tap-highlight-color: transparent; }
+.simcha-card:focus-visible { outline: 3px solid var(--sky-accent); outline-offset: 4px; }
+.event-card { -webkit-tap-highlight-color: transparent; }
+
+/* ============================================================
+   ADMIN LINK (optional, shown in footer)
+   ============================================================ */
+.admin-link-footer { font-size: 12px; opacity: .4; margin-top: 8px; }
+.admin-link-footer:hover { opacity: .7; }
