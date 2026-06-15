@@ -12,47 +12,131 @@
   <div class="site-shell">
     <div data-shared-header></div>
     <main id="main">
-      <section class="hero">
+
+      <!-- HERO -->
+      <section class="hero" style="padding-bottom:32px">
         <div class="container">
           <div class="eyebrow">Support the house of prayer</div>
-          <h1>Keep the lights on, the doors open, and the table set.</h1>
-          <p class="lede">Your gift supports a rare historic synagogue building and the living work inside it: kosher meals, minyanim, student outreach, holiday programs, visitor support, and preservation.</p>
+          <h1>Keep the lights on.<br>Keep the table set.</h1>
+          <p class="lede">Beth Tephilah Synagogue is a national historic landmark with a living community inside. Your gift sustains the building, the minyanim, the kosher table, and the people who make it all alive.</p>
         </div>
       </section>
-      <section class="section">
+
+      <!-- IMPACT AMOUNTS -->
+      <section class="section" style="padding-top:0">
+        <div class="container">
+          <div class="donation-impact-grid reveal">
+            <div class="impact-card">
+              <span class="impact-amount">$54</span>
+              <div class="impact-desc">Chai (חי) — life. A gift of life for the shul.</div>
+            </div>
+            <div class="impact-card">
+              <span class="impact-amount">$180</span>
+              <div class="impact-desc">Chai × 10 — helps feed a Shabbat table for one week.</div>
+            </div>
+            <div class="impact-card">
+              <span class="impact-amount">$360</span>
+              <div class="impact-desc">Double chai — helps sponsor a holiday celebration.</div>
+            </div>
+            <div class="impact-card">
+              <span class="impact-amount">$1,000</span>
+              <div class="impact-desc">Sponsor a month of student programming or building maintenance.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORM + WHY -->
+      <section class="section" style="padding-top:0">
         <div class="container grid two">
           <div class="glass-card form-card reveal">
-            <h2>Donation interests</h2>
+            <h2>Make your gift</h2>
             <div class="donation-options" aria-label="Suggested donation amounts">
               <button class="donation-chip" type="button" data-amount="54">$54</button>
               <button class="donation-chip" type="button" data-amount="180">$180</button>
               <button class="donation-chip" type="button" data-amount="360">$360</button>
+              <button class="donation-chip" type="button" data-amount="500">$500</button>
               <button class="donation-chip" type="button" data-amount="1000">$1,000</button>
             </div>
             <form data-mailto data-subject="Beth Tephila Synagogue donation pledge">
               <input type="hidden" name="subject" value="Beth Tephila Synagogue donation pledge" />
               <div class="form-grid">
-                <div class="field"><label for="amount">Amount</label><input id="amount" name="amount" placeholder="$180" required /></div>
-                <div class="field"><label for="fund">Support area</label><select id="fund" name="fund"><option>Historic preservation</option><option>Kosher meals</option><option>Student programs</option><option>Holiday events</option><option>General support</option><option>Dedication / memorial</option></select></div>
-                <div class="field"><label for="name">Full name</label><input id="name" name="name" autocomplete="name" required /></div>
-                <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required /></div>
-                <div class="field full"><label for="dedication">Dedication or note</label><textarea id="dedication" name="dedication" placeholder="In honor of, in memory of, or any note for the shul."></textarea></div>
+                <div class="field">
+                  <label for="amount">Gift amount</label>
+                  <input id="amount" name="amount" placeholder="$180" required />
+                </div>
+                <div class="field">
+                  <label for="fund">Designate your gift</label>
+                  <select id="fund" name="fund">
+                    <option value="general">General support</option>
+                    <option value="building">Historic building preservation</option>
+                    <option value="meals">Kosher meals & hospitality</option>
+                    <option value="students">Student & youth programs</option>
+                    <option value="holidays">Holiday celebrations</option>
+                    <option value="digital">360° tour & digital welcome</option>
+                    <option value="dedication">Dedication / memorial</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="donor-name">Full name</label>
+                  <input id="donor-name" name="name" autocomplete="name" required placeholder="Your name" />
+                </div>
+                <div class="field">
+                  <label for="donor-email">Email</label>
+                  <input id="donor-email" name="email" type="email" autocomplete="email" required placeholder="your@email.com" />
+                </div>
+                <div class="field full">
+                  <label for="dedication">Dedication or note</label>
+                  <textarea id="dedication" name="dedication" placeholder="In honor of… / In memory of… / For the year 5787… or any personal note for the shul."></textarea>
+                </div>
               </div>
-              <p class="form-note">This static page prepares a pledge email. Connect this page to the shul’s preferred payment processor when ready.</p>
-              <button class="button copper" type="submit">Prepare donation email</button>
+              <p class="form-note" style="margin-top:8px">This prepares a donation pledge email to the shul. The team will follow up with payment instructions. Beth Tephilah is a 501(c)(3) — gifts are tax-deductible.</p>
+              <button class="button copper" type="submit" style="margin-top:16px">Send my pledge</button>
               <div class="form-status" aria-live="polite"></div>
             </form>
           </div>
-          <div class="grid">
-            <article class="card reveal"><span class="tag">Preserve</span><h3>Protect the landmark</h3><p>Support maintenance for the dome, sanctuary, balcony, and historic architectural details that make River Street unforgettable.</p></article>
-            <article class="card reveal"><span class="tag">Feed</span><h3>Set the kosher table</h3><p>Help sponsor meals for students, travelers, families, and community events.</p></article>
-            <article class="card reveal"><span class="tag">Grow</span><h3>Reach young people</h3><p>Fund programs that speak to students and young professionals while respecting the seriousness of the synagogue.</p></article>
+          <div class="grid reveal" style="gap:16px;align-content:start">
+            <article class="card">
+              <span class="tag">Preserve</span>
+              <h3>Protect a national landmark</h3>
+              <p>The 1909 copper dome, barrel-vaulted sanctuary, Doric columns, and balcony require ongoing care. Your gift funds the maintenance that keeps the building safe and beautiful for another century.</p>
+            </article>
+            <article class="card">
+              <span class="tag">Feed</span>
+              <h3>Set the kosher table</h3>
+              <p>Shabbat meals, holiday sedars, student dinners, and traveler hospitality. Every meal is an act of Jewish continuity.</p>
+            </article>
+            <article class="card">
+              <span class="tag">Grow</span>
+              <h3>Reach students & young people</h3>
+              <p>Near RPI and Russell Sage. Your gift funds programs, minyanim, and connections that keep young Jews rooted.</p>
+            </article>
+            <article class="card">
+              <span class="tag">Remember</span>
+              <h3>Honor someone you love</h3>
+              <p>Name a donation in honor or memory of a family member. The shul will acknowledge your dedication personally.</p>
+            </article>
           </div>
         </div>
       </section>
+
+      <!-- QUOTE -->
+      <section class="section">
+        <div class="container glass-card form-card reveal" style="text-align:center;padding:clamp(36px,5vw,64px)">
+          <div class="eyebrow">About this building</div>
+          <blockquote style="font-family:Georgia,serif;font-size:clamp(22px,3.5vw,40px);letter-spacing:-.03em;line-height:1.15;color:var(--navy);margin:18px 0;font-style:italic">"A grand historic synagogue overlooking the Hudson River."</blockquote>
+          <p style="color:var(--navy-soft)">— Synagogues360 / ANU Museum of the Jewish People</p>
+          <div class="actions" style="justify-content:center;margin-top:28px">
+            <a class="button primary" href="donate.html#">Donate now</a>
+            <a class="button secondary" href="https://synagogues-360.anumuseum.org.il/gallery/beth-tephilah/" target="_blank" rel="noopener">Tour the sanctuary</a>
+          </div>
+        </div>
+      </section>
+
     </main>
     <div data-shared-footer></div>
   </div>
+  <script src="config.js"></script>
   <script src="shared/content.js"></script>
   <script src="assets/js/site.js"></script>
 </body>

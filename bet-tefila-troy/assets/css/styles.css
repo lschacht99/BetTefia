@@ -21,6 +21,20 @@
   --radius-xl: 20px;
   --radius-lg: 14px;
   --max: 1180px;
+
+  /* Warm heritage */
+  --oak: #b98958;
+  --oak-light: #ead7bd;
+  --parchment: #f7efe2;
+
+  /* Legacy aliases used by older HTML */
+  --ink: var(--navy);
+  --ink-soft: var(--navy-soft);
+  --paper: var(--sky-light);
+  --paper-2: var(--sky-wash);
+  --teal: var(--sky-mid);
+  --wall-blue: var(--sky);
+  --wall-blue-light: var(--sky-light);
 }
 
 * { box-sizing: border-box; }

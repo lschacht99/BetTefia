@@ -42,8 +42,10 @@
         </div>
         <div class="container beth-tephilah-photo-grid" data-beth-tephilah-gallery></div>
       </section>
+      <button class="btn-exit-tour" id="exitTourBtn" type="button" hidden>✕ Exit Tour</button>
 
-      <section class="section history-feature">
+      <!-- HISTORY: The Troy Story -->
+      <section class="section history-feature" style="padding-top:90px">
         <div class="container section-header reveal">
           <div>
             <div class="eyebrow">About</div>
@@ -51,14 +53,51 @@
           </div>
           <p>Beth Tephila is located in Troy’s Central Historic District and was placed on the National Register of Historic Places in May 2016. The message is simple: this is protected American Jewish history, and it remains a living home for faith, family, and community.</p>
         </div>
-        <div class="container heritage-ribbon reveal" aria-label="Historic timeline highlights">
-          <div><strong>1850</strong><span>Congregation roots in Troy Jewish life</span></div>
+        <div class="container heritage-ribbon reveal">
+          <div><strong>1850</strong><span>Congregation roots in Troy's Jewish community</span></div>
           <div><strong>1909</strong><span>Grand River Street synagogue built near the Hudson</span></div>
-          <div><strong>2016</strong><span>Placed on the National Register of Historic Places</span></div>
-          <div><strong>Today</strong><span>Prayer, kosher meals, students, travelers, events</span></div>
+          <div><strong>2016</strong><span>National Register of Historic Places</span></div>
+          <div><strong>Now</strong><span>Daily prayer, meals, milestones, and community</span></div>
         </div>
       </section>
 
+      <!-- ARCHITECTURE: What You See -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div>
+              <div class="eyebrow">Architecture & space</div>
+              <h2>A synagogue that takes your breath away.</h2>
+            </div>
+          </div>
+          <div class="grid two reveal">
+            <div class="glass-card form-card wall-card">
+              <div class="eyebrow">The building</div>
+              <h2 style="font-size:clamp(30px,4vw,52px)">Neo-Classical. Doric columns. Copper dome.</h2>
+              <p>The 1909 building was designed for a larger Jewish Troy — with a monumental portico, soaring copper dome, long barrel-vaulted sanctuary, women's balcony, and Hudson River views. It was built to last centuries. And it has.</p>
+              <ul class="detail-list" style="margin-top:18px">
+                <li>Neo-Classical exterior with Doric columns</li>
+                <li>Towering entry section and copper dome</li>
+                <li>Long barrel-vaulted sanctuary ceiling</li>
+                <li>Women's balcony supported by columns</li>
+                <li>Located in Troy's Central Historic District</li>
+              </ul>
+              <div class="actions" style="margin-top:22px">
+                <a class="button primary" href="https://synagogues-360.anumuseum.org.il/gallery/beth-tephilah/" target="_blank" rel="noopener">Open 360° tour</a>
+                <a class="button secondary" href="book.html">Book a private tour</a>
+              </div>
+            </div>
+            <div class="glass-card form-card deep-history-card">
+              <div class="eyebrow">History alive</div>
+              <h2 style="font-size:clamp(30px,4vw,52px)">On the National Register since 2016.</h2>
+              <p>Samuel Gruber called it "a grand historic synagogue overlooking the Hudson." Synagogues360, the ANU Museum of the Jewish People's digital archive, chose Beth Tephilah for its 360° virtual tour collection.</p>
+              <p style="margin-top:14px">Rabbi Laibel Morrison has led this congregation since 1982. The building and community are inseparable — neither is a museum piece.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ALIVE: What Happens Inside -->
       <section class="section section-live">
         <div class="container grid four fact-grid">
           <article class="card reveal"><span class="tag">Celebrate</span><h3>Minyanim</h3><p>Call ahead for Shabbat minyan details and current gathering times, especially if you are traveling through Troy.</p></article>
@@ -68,14 +107,45 @@
         </div>
       </section>
 
-      <section class="section heritage-section">
-        <div class="container grid two">
-          <div class="glass-card form-card reveal wall-card">
-            <div class="eyebrow">The building</div>
-            <h2>A grand synagogue overlooking the Hudson.</h2>
-            <p>The River Street building was constructed in 1909 when Troy’s Jewish community was large enough to build on a grand scale overlooking the nearby Hudson River.</p>
-            <p>The exterior combines a towering entry section with a fine copper dome and a horizontal sanctuary section. Inside, the drama is the long barrel-vaulted sanctuary, Doric columns, and women’s balcony.</p>
-            <div class="actions"><a class="button primary" href="events.html">Welcome your event</a><a class="button secondary" href="contact.html">Ask for a tour</a></div>
+      <!-- SOCIAL: Follow the Life -->
+      <section class="social-feed-section">
+        <div class="container">
+          <div class="social-feed-header reveal" style="margin-bottom:40px">
+            <div class="eyebrow">Follow the community</div>
+            <h2>Beth Tephilah is happening now.</h2>
+            <p>Chanukah menorah lightings on River Street. Shabbat tables. Holiday celebrations. Heritage visits. Follow along on Facebook.</p>
+          </div>
+          <div class="grid two reveal" style="gap:28px">
+            <div class="social-feed-embed" id="fb-feed">
+              <div id="fb-root"></div>
+              <div class="fb-page"
+                data-href="https://www.facebook.com/bethtephilah.synagogue/"
+                data-tabs="timeline"
+                data-width="500"
+                data-height="500"
+                data-small-header="true"
+                data-adapt-container-width="true"
+                data-hide-cover="false"
+                data-show-facepile="false">
+              </div>
+            </div>
+            <div style="display:grid;gap:16px;align-content:start">
+              <div class="social-card">
+                <h3>Facebook</h3>
+                <p>Photos, announcements, holiday events, and community updates. The most active social channel for Beth Tephilah.</p>
+                <a class="button secondary" href="https://www.facebook.com/bethtephilah.synagogue/" target="_blank" rel="noopener" style="color:white;border-color:rgba(255,255,255,.32);background:rgba(255,255,255,.12)">Follow on Facebook →</a>
+              </div>
+              <div class="social-card">
+                <h3>Call or Email</h3>
+                <p>For shabbat, events, and simcha planning: always reach out directly. The community responds personally.</p>
+                <a class="button copper" href="tel:+15182723182" style="display:inline-flex;margin-top:4px">(518) 272-3182</a>
+              </div>
+              <div class="social-card">
+                <h3>Plan Your Visit</h3>
+                <p>Downtown Troy, near RPI and Russell Sage College, overlooking the Hudson. Walking distance from hotels.</p>
+                <a class="button secondary" href="https://maps.google.com/?q=82+River+Street+Troy+NY+12180" target="_blank" rel="noopener" style="color:white;border-color:rgba(255,255,255,.32);background:rgba(255,255,255,.12)">Get directions →</a>
+              </div>
+            </div>
           </div>
           <div class="glass-card form-card reveal wall-card deep-history-card">
             <div class="eyebrow">Identity</div>
@@ -91,10 +161,44 @@
           </div>
         </div>
       </section>
+
     </main>
     <div data-shared-footer></div>
   </div>
+  <script src="config.js"></script>
   <script src="shared/content.js"></script>
   <script src="assets/js/site.js"></script>
+  <script>
+    // 360 hero interaction
+    const hero = document.getElementById('hero360');
+    const exitBtn = document.getElementById('exitTourBtn');
+    document.getElementById('enterTourBtn').addEventListener('click', function() {
+      hero.classList.add('tour-active');
+      exitBtn.removeAttribute('hidden');
+    });
+    exitBtn.addEventListener('click', function() {
+      hero.classList.remove('tour-active');
+      exitBtn.setAttribute('hidden', '');
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        hero.classList.remove('tour-active');
+        exitBtn.setAttribute('hidden', '');
+      }
+    });
+
+    // Facebook SDK
+    window.fbAsyncInit = function() {
+      FB.init({ xfbml: true, version: 'v19.0' });
+    };
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk.js';
+      js.async = true; js.defer = true; js.crossOrigin = 'anonymous';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 </body>
 </html>
