@@ -2,11 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="refresh" content="0; url=book.html" />
-  <title>Redirecting — Beth Tephilah Synagogue</title>
-  <link rel="canonical" href="book.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome Your Event — Beth Tephila Synagogue</title>
+  <meta name="description" content="Tell Beth Tephila Synagogue about your Bar or Bat Mitzvah, wedding, Brit Milah, Upsherin/Chalakah, Shabbat meal, holiday dinner, historic visit, or community event." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <p><a href="book.html">Go to Book Your Simcha</a></p>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="site-shell">
+    <div data-shared-header></div>
+    <main id="main">
+      <section class="hero">
+        <div class="container">
+          <div class="eyebrow">We welcome your event</div>
+          <h1>Tell us what you are celebrating, and what you need.</h1>
+          <p class="lede">This single form works for Bar and Bat Mitzvahs, weddings, Brit Milah / bris, Upsherin / Chalakah first haircuts, Shabbat meals, holiday dinners, student programs, minyanim, tours, and community events.</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container glass-card form-card reveal">
+          <form data-mailto data-subject="Beth Tephila Synagogue event registration">
+            <input type="hidden" name="subject" value="Beth Tephila Synagogue event registration" />
+            <div class="form-grid">
+              <div class="field"><label for="event">Event or milestone</label><select id="event" name="event" required></select></div>
+              <div class="field"><label for="guests">Number of guests</label><input id="guests" name="guests" type="number" min="1" value="1" required /></div>
+              <div class="field"><label for="name">Full name</label><input id="name" name="name" autocomplete="name" required /></div>
+              <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required /></div>
+              <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" autocomplete="tel" /></div>
+              <div class="field"><label for="relationship">I am a</label><select id="relationship" name="relationship"><option>Traveler passing through Troy</option><option>RPI / local student</option><option>Local resident</option><option>Family / guest</option><option>Alumni / genealogy researcher</option><option>Other</option></select></div>
+              <div class="field full"><label for="meal">Kosher meal, minhag, or accessibility notes</label><textarea id="meal" name="meal_notes" placeholder="Dietary needs, allergies, family custom, accessibility, arrival time, seating, children, etc."></textarea></div>
+              <div class="field full"><label for="message">Anything else we should know?</label><textarea id="message" name="message" placeholder="Tell us what would make your visit easier."></textarea></div>
+            </div>
+            <p class="form-note">Submitting opens your email app with the details. Review and send the email to complete your RSVP.</p>
+            <button class="button primary" type="submit">Prepare RSVP email</button>
+            <div class="form-status" aria-live="polite"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <div data-shared-footer></div>
+  </div>
+  <script src="shared/content.js"></script>
+  <script src="assets/js/site.js"></script>
 </body>
 </html>

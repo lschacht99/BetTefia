@@ -9,7 +9,7 @@ const BETH_TEPHILAH_PHOTOS = Array.from({ length: 9 }, (_, index) => {
   return {
     full: `https://synagogues-360.anumuseum.org.il/wp-content/uploads/2017/12/united_states_276_${number}.jpg`,
     thumb: `https://synagogues-360.anumuseum.org.il/wp-content/uploads/2017/12/united_states_276_${number}-170x170.jpg`,
-    alt: `Beth Tephilah synagogue photo ${index + 1}`
+    alt: `Beth Tephila synagogue photo ${index + 1}`
   };
 });
 let bethTephilahPanoScriptPromise;
@@ -73,7 +73,7 @@ function setupBethTephilahPhotoGallery() {
   modal.className = 'beth-tephilah-lightbox';
   modal.setAttribute('role', 'dialog');
   modal.setAttribute('aria-modal', 'true');
-  modal.setAttribute('aria-label', 'Beth Tephilah photo viewer');
+  modal.setAttribute('aria-label', 'Beth Tephila photo viewer');
   modal.innerHTML = `
     <button class="beth-tephilah-lightbox-close" type="button" aria-label="Close photo viewer">×</button>
     <figure>
@@ -143,12 +143,9 @@ function renderHeader() {
     <div class="scroll-progress" data-scroll-progress></div>
     <header class="site-header">
       <div class="container navbar">
-        <a class="brand-link" href="index.html" aria-label="${content.displayName || 'Beth Tephilah Synagogue'} home">
+        <a class="brand-link" href="index.html" aria-label="${content.displayName || 'Beth Tephila Synagogue'} home">
           <img src="assets/img/bet-tefila-mark.svg" alt="" width="52" height="52" />
-          <span>
-            <span class="brand-kicker">Historic Troy · Est. 1850</span>
-            <span class="brand-name">${content.shortName || 'Beth Tephilah'}</span>
-          </span>
+          <span><span class="brand-kicker">Historic Troy</span><span class="brand-name">${content.displayName || 'Beth Tephila Synagogue'}</span></span>
         </a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
         <nav id="site-nav" class="nav-links" aria-label="Main navigation">${nav}</nav>
@@ -169,10 +166,8 @@ function renderFooter() {
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <h3 style="color:white;font-family:Georgia,serif;font-size:28px;margin:0 0 14px">${content.displayName || 'Beth Tephilah Synagogue'}</h3>
-          <p>${content.hebrewMeaning || 'House of Prayer'} · ${content.address || '82 River Street, Troy, NY 12180'}</p>
-          <p>Founded 1850 · Building 1909 · National Register 2016</p>
-          <a href="${content.facebook || '#'}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;margin-top:12px">Follow on Facebook →</a>
+          <h3>${content.displayName || 'Beth Tephila Synagogue'}</h3>
+          <p>A living historic house of prayer on River Street, welcoming students, travelers, neighbors, and anyone looking for Jewish life in Troy.</p>
         </div>
         <div>
           <strong style="color:white;font-weight:800;display:block;margin-bottom:10px">Visit & Pray</strong>
@@ -229,7 +224,7 @@ function setupDonationChips() {
 
 function mailtoFromForm(form) {
   const data = new FormData(form);
-  const subject = data.get('subject') || form.dataset.subject || 'Beth Tephilah Synagogue inquiry';
+  const subject = data.get('subject') || form.dataset.subject || 'Beth Tephila Synagogue inquiry';
   const lines = [];
   for (const [key, value] of data.entries()) {
     if (key !== 'subject' && value) lines.push(`${key.replace(/_/g, ' ')}: ${value}`);

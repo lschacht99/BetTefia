@@ -1,7 +1,7 @@
 window.BET_TEFILA_CONTENT = {
-  name: 'Beth Tephilah Synagogue',
-  displayName: 'Beth Tephilah Synagogue',
-  shortName: 'Beth Tephilah',
+  name: 'Beth Tephila Synagogue',
+  displayName: 'Beth Tephila Synagogue',
+  shortName: 'Beth Tephila',
   hebrewMeaning: 'House of Prayer',
   address: '82 River Street, Troy, NY 12180',
   phone: '(518) 272-3182',
@@ -16,7 +16,7 @@ window.BET_TEFILA_CONTENT = {
     { href: 'donate.html', label: 'Donate' }
   ],
   facts: [
-    'Beth Tephilah means House of Prayer',
+    'Beth Tephila means House of Prayer',
     'Historic synagogue overlooking the Hudson River',
     'Original congregation established in 1850',
     'River Street synagogue building constructed in 1909',
@@ -25,13 +25,13 @@ window.BET_TEFILA_CONTENT = {
     'Neo-Classical exterior with Doric columns and a copper dome',
     'Barrel-vaulted sanctuary with a women’s balcony supported by Doric columns',
     'Orthodox / Chabad Jewish life in downtown Troy',
-    'Call ahead for Shabbat minyan, kosher meals, visits, event planning, and traveler logistics'
+    'Call ahead for Shabbat minyan, kosher meals, community visits, and traveler logistics'
   ],
   historyHighlights: [
     {
       year: '1850',
       title: 'Congregation roots',
-      text: 'The original Beth Tephilah congregation was established in Troy when the local Jewish community was growing.'
+      text: 'The original Beth Tephila congregation was established in Troy when the local Jewish community was growing.'
     },
     {
       year: '1909',
@@ -41,7 +41,7 @@ window.BET_TEFILA_CONTENT = {
     {
       year: '2016',
       title: 'National Register',
-      text: 'Beth Tephilah was placed on the National Register of Historic Places in May 2016 as part of Troy’s historic fabric.'
+      text: 'Beth Tephila was placed on the National Register of Historic Places in May 2016 as part of Troy’s historic fabric.'
     },
     {
       year: 'Today',
@@ -142,7 +142,7 @@ window.BET_TEFILA_CONTENT = {
     },
     {
       id: 'bar-bat-mitzvah',
-      title: 'Bar / Bat Mitzvah at Beth Tephilah',
+      title: 'Bar / Bat Mitzvah at Beth Tephila',
       tag: 'Coming of age',
       date: 'By family planning',
       description: 'A sacred milestone in a sanctuary with memory: Torah, family seating, kosher meal planning, and a serious historic atmosphere.'
