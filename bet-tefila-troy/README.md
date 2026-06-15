@@ -1,6 +1,6 @@
-# Beth Tephilah Synagogue website
+# Beth Tephila Synagogue website
 
-A self-contained static website for Beth Tephilah Synagogue in Troy, NY.
+A self-contained static website for Beth Tephila Synagogue in Troy, NY.
 
 ## Link to view
 
@@ -13,7 +13,7 @@ A self-contained static website for Beth Tephilah Synagogue in Troy, NY.
 ## Pages
 
 - `index.html` — Home with the Synagogues360 tour as the immersive hero background
-- `events.html` — “We welcome your event” page for Bar/Bat Mitzvah, wedding, Brit Milah, Upsherin/Chalakah first haircut, Shabbat meals, and heritage gatherings
+- `events.html` — “We welcome your event” page for engagements, Bar/Bat Mitzvah, Brit Milah, Upsherin/Chalakah first haircut, Shabbat meals, and small simchos
 - `event-registration.html` — One shared event RSVP form for all events
 - `contact.html` — Contact and visitor logistics form
 - `donate.html` — Donation page and dedication form

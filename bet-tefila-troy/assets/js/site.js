@@ -2,63 +2,20 @@ const content = window.BET_TEFILA_CONTENT || {};
 const CONTACT_EMAIL = content.email || 'office@bethtephilahtroy.org';
 const CONTACT_PHONE = content.phone || '(518) 272-3182';
 
-const BETH_TEPHILAH_PANO_SCRIPT = 'https://synagogues-360.anumuseum.org.il/wp-content/themes/synagogues360/assets/js/tour.js';
-const BETH_TEPHILAH_PANO_XML = 'https://synagogues-360.anumuseum.org.il/wp-content/uploads/krpano/united_states_276.xml';
 const BETH_TEPHILAH_PHOTOS = Array.from({ length: 9 }, (_, index) => {
   const number = String(index + 1).padStart(2, '0');
   return {
     full: `https://synagogues-360.anumuseum.org.il/wp-content/uploads/2017/12/united_states_276_${number}.jpg`,
     thumb: `https://synagogues-360.anumuseum.org.il/wp-content/uploads/2017/12/united_states_276_${number}-170x170.jpg`,
-    alt: `Beth Tephilah synagogue photo ${index + 1}`
+    alt: `Beth Tephila synagogue photo ${index + 1}`
   };
 });
-let bethTephilahPanoScriptPromise;
-let bethTephilahPanoInitialized = false;
 
-function loadBethTephilahPanoScript() {
-  if (window.embedpano) return Promise.resolve();
-  if (bethTephilahPanoScriptPromise) return bethTephilahPanoScriptPromise;
-  const existing = document.querySelector(`script[src="${BETH_TEPHILAH_PANO_SCRIPT}"]`);
-  bethTephilahPanoScriptPromise = new Promise((resolve, reject) => {
-    if (existing) {
-      existing.addEventListener('load', resolve, { once: true });
-      existing.addEventListener('error', reject, { once: true });
-      return;
-    }
-    const script = document.createElement('script');
-    script.src = BETH_TEPHILAH_PANO_SCRIPT;
-    script.async = true;
-    script.onload = resolve;
-    script.onerror = reject;
-    document.head.appendChild(script);
-  });
-  return bethTephilahPanoScriptPromise;
-}
-
-function showBethTephilahPanoFallback(hero) {
-  const fallback = hero.querySelector('[data-pano-fallback]');
-  if (fallback) fallback.hidden = false;
-}
-
-function initBethTephilahPano() {
-  const target = document.getElementById('beth-tephilah-pano');
+function setupBethTephilahHostedTour() {
   const hero = document.querySelector('.beth-tephilah-360-hero');
-  if (!target || !hero || bethTephilahPanoInitialized) return;
-  bethTephilahPanoInitialized = true;
-  loadBethTephilahPanoScript()
-    .then(() => {
-      if (!window.embedpano) throw new Error('KRPano embedpano is unavailable');
-      window.embedpano({
-        xml: BETH_TEPHILAH_PANO_XML,
-        target: 'beth-tephilah-pano',
-        html5: 'only',
-        wmode: 'transparent',
-        passQueryParameters: true,
-        onready: () => hero.classList.add('is-pano-ready')
-      });
-      window.setTimeout(() => hero.classList.add('is-pano-ready'), 2400);
-    })
-    .catch(() => showBethTephilahPanoFallback(hero));
+  const iframe = document.getElementById('beth-tephilah-pano');
+  if (!hero || !iframe) return;
+  iframe.addEventListener('load', () => hero.classList.add('is-pano-ready'), { once: true });
 }
 
 function setupBethTephilahPhotoGallery() {
@@ -73,7 +30,7 @@ function setupBethTephilahPhotoGallery() {
   modal.className = 'beth-tephilah-lightbox';
   modal.setAttribute('role', 'dialog');
   modal.setAttribute('aria-modal', 'true');
-  modal.setAttribute('aria-label', 'Beth Tephilah photo viewer');
+  modal.setAttribute('aria-label', 'Beth Tephila photo viewer');
   modal.innerHTML = `
     <button class="beth-tephilah-lightbox-close" type="button" aria-label="Close photo viewer">×</button>
     <figure>
@@ -143,12 +100,9 @@ function renderHeader() {
     <div class="scroll-progress" data-scroll-progress></div>
     <header class="site-header">
       <div class="container navbar">
-        <a class="brand-link" href="index.html" aria-label="${content.displayName || 'Beth Tephilah Synagogue'} home">
+        <a class="brand-link" href="index.html" aria-label="${content.displayName || 'Beth Tephila Synagogue'} home">
           <img src="assets/img/bet-tefila-mark.svg" alt="" width="52" height="52" />
-          <span>
-            <span class="brand-kicker">Historic Troy · Est. 1850</span>
-            <span class="brand-name">${content.shortName || 'Beth Tephilah'}</span>
-          </span>
+          <span><span class="brand-kicker">Historic Troy</span><span class="brand-name">${content.displayName || 'Beth Tephila Synagogue'}</span></span>
         </a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
         <nav id="site-nav" class="nav-links" aria-label="Main navigation">${nav}</nav>
@@ -169,10 +123,8 @@ function renderFooter() {
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <h3 style="color:white;font-family:Georgia,serif;font-size:28px;margin:0 0 14px">${content.displayName || 'Beth Tephilah Synagogue'}</h3>
-          <p>${content.hebrewMeaning || 'House of Prayer'} · ${content.address || '82 River Street, Troy, NY 12180'}</p>
-          <p>Founded 1850 · Building 1909 · National Register 2016</p>
-          <a href="${content.facebook || '#'}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;margin-top:12px">Follow on Facebook →</a>
+          <h3>${content.displayName || 'Beth Tephila Synagogue'}</h3>
+          <p>A living historic house of prayer on River Street, welcoming students, travelers, neighbors, and anyone looking for Jewish life in Troy.</p>
         </div>
         <div>
           <strong style="color:white;font-weight:800;display:block;margin-bottom:10px">Visit & Pray</strong>
@@ -229,7 +181,7 @@ function setupDonationChips() {
 
 function mailtoFromForm(form) {
   const data = new FormData(form);
-  const subject = data.get('subject') || form.dataset.subject || 'Beth Tephilah Synagogue inquiry';
+  const subject = data.get('subject') || form.dataset.subject || 'Beth Tephila Synagogue inquiry';
   const lines = [];
   for (const [key, value] of data.entries()) {
     if (key !== 'subject' && value) lines.push(`${key.replace(/_/g, ' ')}: ${value}`);
@@ -355,7 +307,7 @@ renderBottomNav();
 hydrateEvents();
 setupBethTephilahPhotoGallery();
 setupBethTephilahPhotoScroll();
-initBethTephilahPano();
+setupBethTephilahHostedTour();
 hydrateEventSelect();
 setupDonationChips();
 setupForms();
