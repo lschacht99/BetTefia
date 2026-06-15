@@ -20,7 +20,10 @@ function renderHeader() {
       <div class="container navbar">
         <a class="brand-link" href="index.html" aria-label="${content.displayName || 'Beth Tephilah Synagogue'} home">
           <img src="assets/img/bet-tefila-mark.svg" alt="" width="52" height="52" />
-          <span><span class="brand-kicker">Historic Troy</span><span class="brand-name">${content.displayName || 'Beth Tephilah Synagogue'}</span></span>
+          <span>
+            <span class="brand-kicker">Historic Troy · Est. 1850</span>
+            <span class="brand-name">${content.shortName || 'Beth Tephilah'}</span>
+          </span>
         </a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
         <nav id="site-nav" class="nav-links" aria-label="Main navigation">${nav}</nav>
@@ -41,22 +44,25 @@ function renderFooter() {
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <h3>${content.displayName || 'Beth Tephilah Synagogue'}</h3>
-          <p>A living historic house of prayer on River Street, welcoming students, travelers, neighbors, and anyone looking for Jewish life in Troy.</p>
+          <h3 style="color:white;font-family:Georgia,serif;font-size:28px;margin:0 0 14px">${content.displayName || 'Beth Tephilah Synagogue'}</h3>
+          <p>${content.hebrewMeaning || 'House of Prayer'} · ${content.address || '82 River Street, Troy, NY 12180'}</p>
+          <p>Founded 1850 · Building 1909 · National Register 2016</p>
+          <a href="${content.facebook || '#'}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;margin-top:12px">Follow on Facebook →</a>
         </div>
         <div>
-          <strong>Visit</strong>
+          <strong style="color:white;font-weight:800;display:block;margin-bottom:10px">Visit & Pray</strong>
           <p>${content.address || '82 River Street, Troy, NY 12180'}</p>
-          <p>${CONTACT_PHONE}</p>
+          <a href="tel:+15182723182">${CONTACT_PHONE}</a>
+          <a href="schedule.html">Prayer times & schedule</a>
           <a href="contact.html">Plan a visit</a>
-          <a href="event-registration.html">Join an event</a>
+          <a href="https://synagogues-360.anumuseum.org.il/gallery/beth-tephilah/" target="_blank" rel="noopener">360° sanctuary tour</a>
         </div>
         <div>
-          <strong>Support</strong>
+          <strong style="color:white;font-weight:800;display:block;margin-bottom:10px">Celebrate & Support</strong>
+          <a href="book.html">Book your simcha</a>
           <a href="donate.html">Donate</a>
-          <a href="events.html">Upcoming events</a>
           <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>
-          <a href="${content.facebook || '#'}">Facebook updates</a>
+          <p style="margin-top:14px;font-size:13px;color:rgba(248,241,228,.5)">Beth Tephilah Synagogue is a 501(c)(3) nonprofit. Donations are tax-deductible.</p>
         </div>
       </div>
     </footer>`;
@@ -71,7 +77,7 @@ function hydrateEvents() {
       <h3>${event.title}</h3>
       <p><strong>${event.date}</strong></p>
       <p>${event.description}</p>
-      <a class="button secondary" href="event-registration.html?event=${encodeURIComponent(event.id)}">Join this event</a>
+      <a class="button secondary" href="book.html?event=${encodeURIComponent(event.id)}" style="margin-top:12px;display:inline-flex">Plan this event →</a>
     </article>`).join('');
 }
 
@@ -80,7 +86,8 @@ function hydrateEventSelect() {
   if (!select) return;
   const params = new URLSearchParams(window.location.search);
   const requested = params.get('event');
-  select.innerHTML = '<option value="">Choose an event</option>' + (content.events || []).map(event => `<option value="${event.id}">${event.title}</option>`).join('');
+  select.innerHTML = '<option value="">Choose a celebration</option>' +
+    (content.events || []).map(event => `<option value="${event.id}">${event.title}</option>`).join('');
   if (requested) select.value = requested;
 }
 
@@ -100,7 +107,7 @@ function mailtoFromForm(form) {
   const subject = data.get('subject') || form.dataset.subject || 'Beth Tephilah Synagogue inquiry';
   const lines = [];
   for (const [key, value] of data.entries()) {
-    if (key !== 'subject') lines.push(`${key}: ${value}`);
+    if (key !== 'subject' && value) lines.push(`${key.replace(/_/g, ' ')}: ${value}`);
   }
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
 }
@@ -109,17 +116,13 @@ function setupForms() {
   document.querySelectorAll('form[data-mailto]').forEach(form => {
     form.addEventListener('submit', event => {
       event.preventDefault();
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
+      if (!form.checkValidity()) { form.reportValidity(); return; }
       const status = form.querySelector('.form-status');
       if (status) status.textContent = 'Opening your email app with the form details. Please review and send.';
       window.location.href = mailtoFromForm(form);
     });
   });
 }
-
 
 function setupScrollProgress() {
   const progress = document.querySelector('[data-scroll-progress]');
@@ -137,6 +140,7 @@ function setupScrollProgress() {
 function setupPageEntrance() {
   requestAnimationFrame(() => document.documentElement.classList.add('page-ready'));
 }
+
 function setupReveal() {
   const items = document.querySelectorAll('.reveal');
   if (!('IntersectionObserver' in window)) {
@@ -150,10 +154,18 @@ function setupReveal() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.1 });
   items.forEach(item => observer.observe(item));
 }
 
+function registerServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    // Resolves relative to the page URL — sw.js lives at the bet-tefila-troy/ root
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  }
+}
+
+// Boot
 renderHeader();
 renderFooter();
 hydrateEvents();
@@ -163,3 +175,4 @@ setupForms();
 setupScrollProgress();
 setupPageEntrance();
 setupReveal();
+registerServiceWorker();
