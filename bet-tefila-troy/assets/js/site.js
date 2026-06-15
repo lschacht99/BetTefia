@@ -170,18 +170,19 @@ function renderFooter() {
           <p>A living historic house of prayer on River Street, welcoming students, travelers, neighbors, and anyone looking for Jewish life in Troy.</p>
         </div>
         <div>
-          <strong>Visit</strong>
+          <strong style="color:white;font-weight:800;display:block;margin-bottom:10px">Visit & Pray</strong>
           <p>${content.address || '82 River Street, Troy, NY 12180'}</p>
-          <p>${CONTACT_PHONE}</p>
+          <a href="tel:+15182723182">${CONTACT_PHONE}</a>
+          <a href="schedule.html">Prayer times & schedule</a>
           <a href="contact.html">Plan a visit</a>
-          <a href="event-registration.html">Join an event</a>
+          <a href="https://synagogues-360.anumuseum.org.il/gallery/beth-tephilah/" target="_blank" rel="noopener">360° sanctuary tour</a>
         </div>
         <div>
-          <strong>Support</strong>
+          <strong style="color:white;font-weight:800;display:block;margin-bottom:10px">Celebrate & Support</strong>
+          <a href="book.html">Book your simcha</a>
           <a href="donate.html">Donate</a>
-          <a href="events.html">Upcoming events</a>
           <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>
-          <a href="${content.facebook || '#'}">Facebook updates</a>
+          <p style="margin-top:14px;font-size:13px;color:rgba(248,241,228,.5)">Beth Tephilah Synagogue is a 501(c)(3) nonprofit. Donations are tax-deductible.</p>
         </div>
       </div>
     </footer>`;
@@ -196,7 +197,7 @@ function hydrateEvents() {
       <h3>${event.title}</h3>
       <p><strong>${event.date}</strong></p>
       <p>${event.description}</p>
-      <a class="button secondary" href="event-registration.html?event=${encodeURIComponent(event.id)}">Join this event</a>
+      <a class="button secondary" href="book.html?event=${encodeURIComponent(event.id)}" style="margin-top:12px;display:inline-flex">Plan this event →</a>
     </article>`).join('');
 }
 
@@ -205,7 +206,8 @@ function hydrateEventSelect() {
   if (!select) return;
   const params = new URLSearchParams(window.location.search);
   const requested = params.get('event');
-  select.innerHTML = '<option value="">Choose an event</option>' + (content.events || []).map(event => `<option value="${event.id}">${event.title}</option>`).join('');
+  select.innerHTML = '<option value="">Choose a celebration</option>' +
+    (content.events || []).map(event => `<option value="${event.id}">${event.title}</option>`).join('');
   if (requested) select.value = requested;
 }
 
@@ -225,26 +227,62 @@ function mailtoFromForm(form) {
   const subject = data.get('subject') || form.dataset.subject || 'Beth Tephila Synagogue inquiry';
   const lines = [];
   for (const [key, value] of data.entries()) {
-    if (key !== 'subject') lines.push(`${key}: ${value}`);
+    if (key !== 'subject' && value) lines.push(`${key.replace(/_/g, ' ')}: ${value}`);
   }
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
 }
 
+async function submitToScript(data) {
+  const cfg = window.BET_TEFILA_CONFIG || {};
+  const url = cfg.GOOGLE_SCRIPT_URL;
+  if (!url || url.includes('YOUR_SCRIPT_ID')) return false;
+  try {
+    await fetch(url, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(data),
+    });
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function formTypeFromSubject(subject) {
+  const s = (subject || '').toLowerCase();
+  if (s.includes('simcha') || s.includes('booking')) return 'booking';
+  if (s.includes('donation') || s.includes('pledge')) return 'donation';
+  return 'contact';
+}
+
 function setupForms() {
   document.querySelectorAll('form[data-mailto]').forEach(form => {
-    form.addEventListener('submit', event => {
+    form.addEventListener('submit', async event => {
       event.preventDefault();
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
       const status = form.querySelector('.form-status');
-      if (status) status.textContent = 'Opening your email app with the form details. Please review and send.';
-      window.location.href = mailtoFromForm(form);
+      const submitBtn = form.querySelector('[type="submit"]');
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+
+      const formData = Object.fromEntries(new FormData(form));
+      const subject = formData.subject || form.dataset.subject || 'Beth Tephilah inquiry';
+      const type = formTypeFromSubject(subject);
+      const sent = await submitToScript({ type, ...formData });
+
+      if (sent) {
+        if (status) status.textContent = '✓ Message received. The shul will be in touch within 24–48 hours.';
+        form.reset();
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send'; }
+      } else {
+        if (status) status.textContent = 'Opening your email app…';
+        if (submitBtn) { submitBtn.disabled = false; }
+        window.location.href = mailtoFromForm(form);
+      }
     });
   });
 }
-
 
 function setupScrollProgress() {
   const progress = document.querySelector('[data-scroll-progress]');
@@ -262,6 +300,7 @@ function setupScrollProgress() {
 function setupPageEntrance() {
   requestAnimationFrame(() => document.documentElement.classList.add('page-ready'));
 }
+
 function setupReveal() {
   const items = document.querySelectorAll('.reveal');
   if (!('IntersectionObserver' in window)) {
@@ -275,12 +314,39 @@ function setupReveal() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.1 });
   items.forEach(item => observer.observe(item));
 }
 
+function renderBottomNav() {
+  const nav = document.createElement('nav');
+  nav.className = 'bottom-nav';
+  nav.setAttribute('aria-label', 'Quick navigation');
+  const page = currentPage();
+  nav.innerHTML = [
+    { href: 'index.html',    icon: '🏛', label: 'Home' },
+    { href: 'schedule.html', icon: '📅', label: 'Schedule' },
+    { href: 'book.html',     icon: '✡', label: 'Simchas' },
+    { href: 'donate.html',   icon: '💙', label: 'Donate' },
+  ].map(({ href, icon, label }) =>
+    `<a href="${href}"${page === href ? ' class="active" aria-current="page"' : ''}>
+      <span class="bnav-icon">${icon}</span>
+      <span>${label}</span>
+    </a>`
+  ).join('');
+  document.body.appendChild(nav);
+}
+
+function registerServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  }
+}
+
+// Boot
 renderHeader();
 renderFooter();
+renderBottomNav();
 hydrateEvents();
 setupBethTephilahPhotoGallery();
 setupBethTephilahPhotoScroll();
@@ -291,3 +357,4 @@ setupForms();
 setupScrollProgress();
 setupPageEntrance();
 setupReveal();
+registerServiceWorker();
