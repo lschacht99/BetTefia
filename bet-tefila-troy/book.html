@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book Your Simcha — Beth Tephilah Synagogue</title>
+  <meta name="description" content="Book your Bar or Bat Mitzvah, wedding, Brit Milah, Upsherin, Fiançailles, or other Jewish milestone at Beth Tephilah Synagogue in Troy, NY — a landmark 1909 sanctuary on the Hudson." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="site-shell">
+    <div data-shared-header></div>
+    <main id="main">
+
+      <!-- HERO -->
+      <section class="hero" style="padding-bottom:32px">
+        <div class="container">
+          <div class="eyebrow">Simcha & event planning</div>
+          <h1>Your milestone belongs<br>in a sacred place.</h1>
+          <p class="lede">Beth Tephilah Synagogue — 1909, neo-classical, copper dome, barrel-vaulted sanctuary on the Hudson — is the most historic and meaningful setting for your Jewish celebration in upstate New York.</p>
+          <div class="actions">
+            <a class="button primary" href="#choose-simcha">Begin planning</a>
+            <a class="button secondary" href="tel:+15182723182">Call to discuss</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY BETH TEPHILAH -->
+      <section class="section" style="padding-top:0">
+        <div class="container grid four fact-grid reveal">
+          <article class="card">
+            <span class="tag">Historic</span>
+            <h3>A sanctuary with memory</h3>
+            <p>1909 building, National Register of Historic Places. Generations of Jewish life have been celebrated here.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Kosher</span>
+            <h3>Full hospitality</h3>
+            <p>Coordinate kosher catering, Shabbat needs, guest logistics, accessibility, and dietary requirements with the shul team.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Space</span>
+            <h3>Grand sanctuary</h3>
+            <p>Barrel-vaulted ceiling, Doric columns, women's balcony, and natural light from historic windows. No venue competes.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Personal</span>
+            <h3>Rabbi Morrison</h3>
+            <p>Rabbi Laibel Morrison has served this community since 1982. Personal, experienced, and deeply rooted in Troy.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- CHOOSE YOUR SIMCHA -->
+      <section class="section" id="choose-simcha">
+        <div class="container">
+          <div class="section-header reveal">
+            <div>
+              <div class="eyebrow">What are you celebrating?</div>
+              <h2>Choose your milestone.</h2>
+            </div>
+            <p>Select your event type below. The form will adapt to your celebration.</p>
+          </div>
+          <div class="simcha-grid reveal" id="simcha-type-grid">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- BOOKING FORM -->
+      <section class="section" id="booking-form-section">
+        <div class="container grid two">
+          <div class="glass-card form-card reveal">
+            <div class="eyebrow">Start planning</div>
+            <h2 id="form-title">Tell us about your celebration.</h2>
+            <p>Fill in what you know. Rabbi Morrison and the shul team will follow up personally to discuss logistics, dates, kosher needs, and everything in between.</p>
+            <form data-mailto data-subject="Beth Tephilah Simcha Inquiry" style="margin-top:24px">
+              <input type="hidden" name="subject" value="Beth Tephilah Simcha Inquiry" />
+              <div class="form-grid">
+                <div class="field full">
+                  <label for="simcha-type">Type of celebration</label>
+                  <select id="simcha-type" name="simcha_type" required>
+                    <option value="">Select your celebration…</option>
+                    <option value="bar-mitzvah">Bar Mitzvah</option>
+                    <option value="bat-mitzvah">Bat Mitzvah</option>
+                    <option value="wedding">Wedding / Chuppah</option>
+                    <option value="aufruf">Aufruf</option>
+                    <option value="sheva-brachot">Sheva Brachot</option>
+                    <option value="brit-milah">Brit Milah / Bris</option>
+                    <option value="upsherin">Upsherin / Chalakah</option>
+                    <option value="fiancailles">Fiançailles / Engagement Celebration</option>
+                    <option value="heritage-tour">Private Heritage Tour</option>
+                    <option value="shabbat-event">Shabbat Event / Guest Shabbat</option>
+                    <option value="yahrzeit">Yahrzeit / Memorial</option>
+                    <option value="other">Other Gathering</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="event-date">Preferred date</label>
+                  <input id="event-date" name="preferred_date" type="date" />
+                </div>
+                <div class="field">
+                  <label for="guest-count">Estimated guests</label>
+                  <input id="guest-count" name="guest_count" type="number" min="1" placeholder="e.g. 40" />
+                </div>
+                <div class="field">
+                  <label for="book-name">Your full name</label>
+                  <input id="book-name" name="name" autocomplete="name" required placeholder="Full name" />
+                </div>
+                <div class="field">
+                  <label for="book-email">Email address</label>
+                  <input id="book-email" name="email" type="email" autocomplete="email" required placeholder="your@email.com" />
+                </div>
+                <div class="field">
+                  <label for="book-phone">Phone number</label>
+                  <input id="book-phone" name="phone" type="tel" autocomplete="tel" placeholder="(000) 000-0000" />
+                </div>
+                <div class="field">
+                  <label for="book-city">City / state you're coming from</label>
+                  <input id="book-city" name="origin_city" placeholder="e.g. Albany, NY" />
+                </div>
+                <div class="field full">
+                  <label for="kosher-needs">Kosher & catering needs</label>
+                  <textarea id="kosher-needs" name="kosher_needs" placeholder="Describe kosher level, allergies, number needing meals, special dietary needs…"></textarea>
+                </div>
+                <div class="field full">
+                  <label for="book-message">Tell us about your celebration</label>
+                  <textarea id="book-message" name="message" placeholder="Share details, questions, timing, any special requirements, family needs, accessibility needs, or anything the shul should know…" style="min-height:150px"></textarea>
+                </div>
+              </div>
+              <p class="form-note">This sends an inquiry to the shul. Rabbi Morrison's team will respond personally — usually within 24–48 hours.</p>
+              <button class="button copper" type="submit" style="margin-top:12px">Send my inquiry</button>
+              <div class="form-status" aria-live="polite"></div>
+            </form>
+          </div>
+          <div style="display:grid;gap:18px;align-content:start">
+            <div class="glass-card form-card reveal">
+              <div class="eyebrow">Before you fill out the form</div>
+              <h3>What to expect</h3>
+              <div class="timeline" style="margin-top:18px">
+                <div class="timeline-item"><div><strong>Submit inquiry</strong><p style="margin:4px 0 0;font-size:15px">Send your celebration type, date, and guest count.</p></div></div>
+                <div class="timeline-item"><div><strong>Personal reply</strong><p style="margin:4px 0 0;font-size:15px">Rabbi Morrison or the shul team responds with availability and details.</p></div></div>
+                <div class="timeline-item"><div><strong>Planning call</strong><p style="margin:4px 0 0;font-size:15px">Discuss logistics, kosher needs, timing, and the space.</p></div></div>
+                <div class="timeline-item"><div><strong>Your simcha</strong><p style="margin:4px 0 0;font-size:15px">Celebrate in one of America's most beautiful historic synagogues.</p></div></div>
+              </div>
+            </div>
+            <article class="card reveal">
+              <span class="tag">Prefer to call?</span>
+              <h3>(518) 272-3182</h3>
+              <p>Call the shul directly to discuss your celebration. Speaking with someone is often the fastest way to plan.</p>
+              <a class="button primary" href="tel:+15182723182" style="margin-top:14px;display:inline-flex">Call now</a>
+            </article>
+            <article class="card reveal">
+              <span class="tag">360° tour</span>
+              <h3>See the sanctuary first</h3>
+              <p>Walk through the space virtually before you plan your event. The 360° tour shows the full sanctuary, balcony, and architectural details.</p>
+              <a class="button secondary" href="https://synagogues-360.anumuseum.org.il/gallery/beth-tephilah/" target="_blank" rel="noopener" style="margin-top:14px;display:inline-flex">Open 360° tour →</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <div data-shared-footer></div>
+  </div>
+  <script src="shared/content.js"></script>
+  <script src="assets/js/site.js"></script>
+  <script>
+    // Simcha type grid from content
+    const content = window.BET_TEFILA_CONTENT || {};
+    const simchaGrid = document.getElementById('simcha-type-grid');
+    const formTitle = document.getElementById('form-title');
+    const simchaSelect = document.getElementById('simcha-type');
+    if (simchaGrid && content.simchaTypes) {
+      simchaGrid.innerHTML = content.simchaTypes.map(s => `
+        <div class="simcha-card" data-id="${s.id}" role="button" tabindex="0" aria-label="Select ${s.label}">
+          <span class="simcha-icon">${s.icon}</span>
+          <h3>${s.label}</h3>
+          <p>${s.description}</p>
+        </div>`).join('');
+      simchaGrid.querySelectorAll('.simcha-card').forEach(card => {
+        const activate = () => {
+          simchaGrid.querySelectorAll('.simcha-card').forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          const id = card.dataset.id;
+          const found = content.simchaTypes.find(s => s.id === id);
+          if (found) {
+            formTitle.textContent = `Planning a ${found.label} — Tell us about it.`;
+            simchaSelect.value = id;
+          }
+          document.getElementById('booking-form-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        };
+        card.addEventListener('click', activate);
+        card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') activate(); });
+      });
+    }
+  </script>
+</body>
+</html>
