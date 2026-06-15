@@ -8,7 +8,7 @@ A self-contained static website for Beth Tephilah Synagogue in Troy, NY.
 - Interactive 360° source tour: https://synagogues-360.anumuseum.org.il/gallery/beth-tephilah/
 - Facebook page for live updates: https://www.facebook.com/bethtephilah.synagogue/
 - From the repo root: [`../index.html`](../index.html) redirects here.
-- GitHub Pages path after Pages is enabled: `https://<your-github-user>.github.io/HamsaNomads/bet-tefila-troy/`
+- GitHub Pages path after Pages is enabled: `https://<your-github-user>.github.io/<repo-name>/bet-tefila-troy/`
 
 ## Pages
 
@@ -21,7 +21,7 @@ A self-contained static website for Beth Tephilah Synagogue in Troy, NY.
 ## Shared assets
 
 - `shared/content.js` — shared synagogue name, address, navigation, history facts, and event data
-- `assets/css/styles.css` — shared liquid-glass historic visual system
+- `assets/css/styles.css` — shared warm oak/parchment/copper historic visual system
 - `assets/js/site.js` — shared header, footer, mobile nav, form helpers, animations, scroll progress, and event hydration
 - `assets/img/` — inline SVG brand marks and decorative assets
 
