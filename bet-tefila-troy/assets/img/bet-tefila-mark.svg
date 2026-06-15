@@ -1,21 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
-  <title id="title">Beth Tephilah abstract dome mark</title>
-  <desc id="desc">A copper dome, river line, and star inspired by the historic Troy synagogue.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-labelledby="title desc">
+  <title id="title">Beth Tephila Synagogue community menorah mark</title>
+  <desc id="desc">A warm community circle surrounding a menorah, inspired by the Beth Tephila visual identity.</desc>
   <defs>
-    <linearGradient id="copper" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0" stop-color="#f4c28a"/>
-      <stop offset="0.55" stop-color="#b9794a"/>
-      <stop offset="1" stop-color="#68412e"/>
-    </linearGradient>
-    <linearGradient id="glass" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0" stop-color="#fff7e8"/>
-      <stop offset="1" stop-color="#dbe7ee"/>
-    </linearGradient>
+    <style>
+      .blue{fill:#0E2A47}.petrol{fill:#186B74}.gold{fill:#C99A3A}.ivory{fill:#F5F1E8}.stroke-gold{stroke:#C99A3A}.stroke-blue{stroke:#0E2A47}
+    </style>
   </defs>
-  <circle cx="80" cy="80" r="74" fill="#12202b"/>
-  <path d="M34 93c7-26 25-43 46-43s39 17 46 43" fill="url(#copper)"/>
-  <path d="M42 93h76v36H42z" fill="url(#glass)" opacity=".95"/>
-  <path d="M52 128V91M72 128V83M92 128V83M112 128V91" stroke="#12202b" stroke-width="5" stroke-linecap="round"/>
-  <path d="M80 23l6 13 14 2-10 10 3 14-13-7-13 7 3-14-10-10 14-2z" fill="#f7d58f"/>
-  <path d="M31 119c22 11 41-10 61 0s30 10 42 2" fill="none" stroke="#6da7b8" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="110" cy="110" r="104" class="ivory"/>
+  <g transform="translate(110 110)">
+    <circle cx="0" cy="-82" r="15" class="petrol"/>
+    <path d="M-10-61c22-11 44-8 62 9-15 2-31 10-45 24-11-8-18-19-17-33z" class="petrol"/>
+    <circle cx="67" cy="-48" r="13" class="blue"/>
+    <path d="M47-35c23 7 38 22 45 45-17-7-35-8-55-3-1-16 2-30 10-42z" class="blue"/>
+    <circle cx="79" cy="26" r="13" class="petrol"/>
+    <path d="M60 33c5 23-2 43-18 60-4-17-14-32-30-45 13-10 28-15 48-15z" class="petrol"/>
+    <circle cx="13" cy="83" r="13" class="gold"/>
+    <path d="M-2 64c-21 10-43 8-62-6 16-4 31-13 44-28 12 8 19 19 18 34z" class="gold"/>
+    <circle cx="-69" cy="43" r="13" class="blue"/>
+    <path d="M-51 32c-22-7-37-23-43-46 16 8 34 10 54 5 1 16-3 30-11 41z" class="blue"/>
+    <circle cx="-76" cy="-25" r="13" class="gold"/>
+    <path d="M-57-33c-3-24 5-43 23-58 3 17 12 33 27 46-14 9-30 13-50 12z" class="gold"/>
+  </g>
+  <g fill="none" class="stroke-gold" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M110 143V82"/>
+    <path d="M78 95v13c0 18 14 32 32 32s32-14 32-32V95"/>
+    <path d="M92 88v20c0 10 8 18 18 18s18-8 18-18V88"/>
+    <path d="M74 154h72"/>
+    <path d="M92 166h36"/>
+  </g>
+  <g class="gold">
+    <circle cx="78" cy="91" r="5"/><circle cx="92" cy="84" r="5"/><circle cx="110" cy="78" r="5"/><circle cx="128" cy="84" r="5"/><circle cx="142" cy="91" r="5"/>
+  </g>
 </svg>
