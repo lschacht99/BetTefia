@@ -12,6 +12,7 @@ const BETH_TEPHILAH_PHOTOS = Array.from({ length: 9 }, (_, index) => {
     alt: `Beth Tephilah synagogue photo ${index + 1}`
   };
 });
+const BETH_TEPHILAH_TOUR_URL = content.tour360 || 'https://synagogues-360.anumuseum.org.il/gallery/beth-tephilah/';
 let bethTephilahPanoScriptPromise;
 let bethTephilahPanoInitialized = false;
 
@@ -36,8 +37,15 @@ function loadBethTephilahPanoScript() {
 }
 
 function showBethTephilahPanoFallback(hero) {
+  if (hero.classList.contains('is-pano-ready') || hero.classList.contains('is-pano-failed')) return;
+  hero.classList.add('is-pano-failed');
   const fallback = hero.querySelector('[data-pano-fallback]');
-  if (fallback) fallback.hidden = false;
+  if (fallback) {
+    fallback.hidden = false;
+    fallback.innerHTML = `Live 360° view couldn't load here — <a href="${BETH_TEPHILAH_TOUR_URL}" target="_blank" rel="noopener">open the full 360° tour ↗</a>`;
+  }
+  const poster = hero.querySelector('[data-pano-poster] span');
+  if (poster) poster.textContent = 'Explore the sanctuary in 360°';
 }
 
 function initBethTephilahPano() {
@@ -54,9 +62,14 @@ function initBethTephilahPano() {
         html5: 'only',
         wmode: 'transparent',
         passQueryParameters: true,
-        onready: () => hero.classList.add('is-pano-ready')
+        onready: () => hero.classList.add('is-pano-ready'),
+        onerror: () => showBethTephilahPanoFallback(hero)
       });
-      window.setTimeout(() => hero.classList.add('is-pano-ready'), 2400);
+      // Safety net: if the panorama never reports ready (e.g. blocked tiles),
+      // surface the fallback instead of leaving an empty dark frame.
+      window.setTimeout(() => {
+        if (!hero.classList.contains('is-pano-ready')) showBethTephilahPanoFallback(hero);
+      }, 9000);
     })
     .catch(() => showBethTephilahPanoFallback(hero));
 }
@@ -68,6 +81,28 @@ function setupBethTephilahPhotoGallery() {
     <button class="beth-tephilah-photo-card reveal" type="button" data-photo-index="${index}" aria-label="Open ${photo.alt}">
       <img src="${photo.thumb}" data-full="${photo.full}" alt="${photo.alt}" loading="lazy" decoding="async" />
     </button>`).join('');
+
+  // Graceful degradation: if the externally hosted photos can't load, hide the
+  // broken cards. If none load at all, replace the grid with a clean link to
+  // the official 360° gallery instead of a wall of broken-image icons.
+  let loaded = 0;
+  let settled = 0;
+  const total = BETH_TEPHILAH_PHOTOS.length;
+  const finalize = () => {
+    if (settled < total || loaded > 0) return;
+    host.innerHTML = `
+      <div class="beth-tephilah-photo-empty">
+        <p>Photos are hosted by the ANU Museum's Synagogues360 archive.</p>
+        <a class="button copper" href="${BETH_TEPHILAH_TOUR_URL}" target="_blank" rel="noopener">View the sanctuary gallery ↗</a>
+      </div>`;
+  };
+  host.querySelectorAll('img').forEach(img => {
+    const settle = (ok) => { settled++; if (ok) loaded++; else img.closest('.beth-tephilah-photo-card')?.remove(); finalize(); };
+    if (img.complete && img.naturalWidth > 0) { settle(true); return; }
+    if (img.complete && img.naturalWidth === 0) { settle(false); return; }
+    img.addEventListener('load', () => settle(true), { once: true });
+    img.addEventListener('error', () => settle(false), { once: true });
+  });
 
   const modal = document.createElement('div');
   modal.className = 'beth-tephilah-lightbox';

@@ -378,6 +378,10 @@ input:focus, select:focus, textarea:focus { border-color: var(--sky-accent); box
   pointer-events: none;
 }
 .beth-tephilah-360-hero.is-pano-ready .beth-tephilah-pano-poster { opacity: 0; visibility: hidden; }
+/* When the live 360 embed can't load, keep the poster as a presentable
+   backdrop instead of revealing an empty dark frame. */
+.beth-tephilah-360-hero.is-pano-failed .beth-tephilah-pano-poster { opacity: 1; visibility: visible; }
+.beth-tephilah-pano-fallback a { color: var(--gold-light); font-weight: 850; }
 .beth-tephilah-pano-fallback {
   position: absolute;
   left: 50%;
@@ -446,6 +450,20 @@ input:focus, select:focus, textarea:focus { border-color: var(--sky-accent); box
   cursor: pointer;
 }
 .beth-tephilah-photo-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; transition: transform .28s ease; }
+.beth-tephilah-photo-empty {
+  grid-column: 1 / -1;
+  width: 100%;
+  flex: 1 0 100%;
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+  text-align: center;
+  padding: clamp(32px, 6vw, 60px);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(160deg, #fff, var(--paper-2));
+  border: 1px dashed rgba(17,33,43,.18);
+}
+.beth-tephilah-photo-empty p { margin: 0; color: var(--ink-soft); font-weight: 700; }
 .beth-tephilah-photo-card:hover img,
 .beth-tephilah-photo-card:focus-visible img { transform: scale(1.045); }
 .beth-tephilah-lightbox {
