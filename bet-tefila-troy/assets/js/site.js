@@ -206,6 +206,36 @@ function hydrateEvents() {
     </article>`).join('');
 }
 
+function setupNextEvent() {
+  const host = document.querySelector('[data-next-event]');
+  if (!host) return;
+  const events = content.upcomingEvents || [];
+  if (!events.length) { host.remove(); return; }
+
+  // Feature the first upcoming event as the "next" event.
+  const next = events[0];
+  const dateLabel = next.dateDisplay || next.date || 'Soon';
+  const dateShort = dateLabel.replace('Every ', '');
+  const rsvpHref = next.rsvpRequired
+    ? `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('RSVP: ' + next.title)}`
+    : 'schedule.html';
+  const rsvpLabel = next.rsvpRequired ? 'RSVP now' : 'See details';
+
+  host.innerHTML = `
+    <span class="next-event-flow" aria-hidden="true"></span>
+    <div class="next-event-when">
+      <span class="ne-tag">${next.tag || 'Event'}</span>
+      <span class="ne-date">${dateShort}</span>
+    </div>
+    <div class="next-event-body">
+      <span class="next-event-eyebrow"><span class="live-dot" aria-hidden="true"></span> Next at Beth Tephilah</span>
+      <h3>${next.title}</h3>
+      <p>${next.description || ''}</p>
+    </div>
+    <a class="button copper" href="${rsvpHref}">${rsvpLabel} →</a>`;
+  host.hidden = false;
+}
+
 function hydrateEventSelect() {
   const select = document.querySelector('select[name="event"]');
   if (!select) return;
@@ -353,6 +383,7 @@ renderHeader();
 renderFooter();
 renderBottomNav();
 hydrateEvents();
+setupNextEvent();
 setupBethTephilahPhotoGallery();
 setupBethTephilahPhotoScroll();
 initBethTephilahPano();
